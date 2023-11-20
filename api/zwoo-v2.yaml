@@ -1,0 +1,254 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json
+
+openapi: 3.0.3
+info:
+  title: Zwoo API
+  description: |-
+    This is the second generation zwoo API specification. It is used for client -
+     server and server - server communication.
+    # Architecture
+    There a 3 types of servers:
+    ## Master
+    This is the main zwoo server with global accounts and persisted data.
+    ## Local Game Server
+    This is a lightweight server distributed with the tauri app, that can be used
+    for local and offline games. All data on this server will be non persisted. It
+    acts in isolation of the official zwoo infrastructure.
+    ## Distributed Game Server
+    This is a server for distributed game workloads. It only works in combination 
+    with a master server, because the master has to handle authentication and 
+    sessions.
+  termsOfService: https://zwoo.igd20.de/
+  contact:
+    email: contact@ogd20.de
+  license:
+    name: TODO
+    url: todo
+  version: 2.0.0
+
+servers:
+  - url: https://zwoo.igd20.de/
+    description: The main zwoo server
+
+tags:
+  - name: info
+    description: server status & co.
+  - name: authentication
+    description: todo
+  - name: user
+    description: user data and account management
+  - name: game
+    description: everything game related
+  - name: master
+    description: available on the zwoo master server
+  - name: local-server
+    description: available on a local zwoo game server
+  - name: game-server
+    description: available on a distributed zwoo game server
+
+paths:
+  /sever/discover:
+    post:
+      tags:
+        - info
+        - master
+        - local-server
+        - game-server
+      summary: Get the core server information
+      description: todo
+      operationId: discoverServer
+      requestBody:
+        description: the connecting clients info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClientInfo"
+        required: true
+      responses:
+        "200":
+          description: Successfully discovered client
+
+  /auth/user:
+    get:
+      tags:
+        - authentication
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: get the current users information
+  /auth/create:
+    post:
+      tags:
+        - authentication
+        - master
+      summary: create a new account
+  /auth/login:
+    post:
+      tags:
+        - authentication
+        - master
+      summary: log into your account
+  /auth/login-guest:
+    post:
+      tags:
+        - authentication
+        - local-server
+      summary: log into a temporary guest account on a local server
+  /auth/logout:
+    get:
+      tags:
+        - authentication
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: logout of your account
+
+  /account:
+    delete:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: delete the users account
+  /account/verify:
+    get:
+      tags:
+        - user
+        - master
+      summary: verify an account
+  /account/verify/resend:
+    post:
+      tags:
+        - user
+        - master
+      summary: resend the verification request
+  /account/settings:
+    get:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: return the users synced settings
+    post:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: update the users synced settings
+  /account/password/change:
+    post:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: change the users password
+  /account/password/request-reset:
+    post:
+      tags:
+        - user
+        - master
+      summary: request the reset of the users password
+  /account/password/reset:
+    post:
+      tags:
+        - user
+        - master
+      summary: reset the users password
+
+  /leaderboard:
+    get:
+      tags:
+        - game
+        - master
+      summary: return the current leaderboard
+  /leaderboard/self:
+    get:
+      security:
+        - cookie: []
+      tags:
+        - game
+        - master
+      summary: return the current position of the authenticated user in the leaderboard
+
+  /game/list:
+    get:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: TODO (get games)
+  /game/join:
+    post:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: join a game
+  /game/{id}:
+    get:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: get information on the selected game
+  /game/{id}/connect:
+    get:
+      tags:
+        - game
+        - master
+        - local-server
+        - game-server
+      security:
+        - game-token: []
+      summary: setup a websocket connection on a game
+
+  /changelog:
+    get:
+      tags:
+        - info
+        - master
+      summary: return all versions in the changelog
+  /changelog/current:
+    get:
+      tags:
+        - info
+        - master
+      summary: return the latest changelog
+
+  /contact:
+    post:
+      tags:
+        - info
+        - master
+      summary: send a contact request
+
+components:
+  schemas:
+    ClientInfo:
+      type: object
+      properties:
+        version:
+          type: string
+        zrpVersion:
+          type: string
+  securitySchemes:
+    cookie:
+      type: apiKey
+      in: cookie
+      name: auth
+    game-token:
+      type: apiKey
+      in: query
+      name: token
