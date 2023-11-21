@@ -154,11 +154,27 @@ paths:
       tags:
         - authentication
         - local-server
-      summary: log into a temporary guest account on a local server
-      description: TODO
+      summary: log into a temporary guest account
+      description: log into a temporary guest account on a local server
+      operationId: loginGuest
+      requestBody:
+        description: the user login information
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuestLogin"
+        required: true
       responses:
         "200":
-          description: todo
+          description: the login was successful
+        "400":
+          description: cant login with the provided details
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
   /auth/logout:
     get:
       tags:
@@ -398,9 +414,40 @@ paths:
         - local-server
       security:
         - cookie: []
-      summary: TODO (get games)
+      summary: query games
       description: query the currently active games
       operationId: getGames
+      parameters:
+        - name: recommended
+          description: server should used recommended order
+          in: query
+          schema:
+            type: boolean
+        - name: offset
+          description: the number of items to skip before starting to collect the result
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+          required: true
+        - name: limit
+          description: the number of items to return
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 100
+          required: true
+        - name: filter
+          description: a query string to search by
+          in: query
+          schema:
+            type: string
+        - name: publicOnly
+          description: whether to include public only games
+          in: query
+          schema:
+            type: boolean
       responses:
         "200":
           description: successfully games list response
@@ -734,6 +781,13 @@ components:
         - email
         - password
         - captchaToken
+    GuestLogin:
+      type: object
+      properties:
+        username:
+          type: string
+      required:
+        - username
     DeleteAccount:
       type: object
       properties:
