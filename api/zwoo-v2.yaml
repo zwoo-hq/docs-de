@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json
 
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: Zwoo API
   description: |-
@@ -21,9 +21,6 @@ info:
   termsOfService: https://zwoo.igd20.de/
   contact:
     email: contact@igd20.de
-  license:
-    name: TODO
-    url: todo
   version: 2.0.0
 
 servers:
@@ -159,6 +156,9 @@ paths:
         - local-server
       summary: log into a temporary guest account on a local server
       description: TODO
+      responses:
+        "200":
+          description: todo
   /auth/logout:
     get:
       tags:
@@ -201,11 +201,6 @@ paths:
           $ref: "#/components/responses/UnauthorizedResponse"
         "500":
           $ref: "#/components/responses/InternalServerErrorResponse"
-    get:
-      tags:
-        - user
-        - master
-      summary: verify an account
   /account/verify/resend:
     post:
       tags:
@@ -497,6 +492,13 @@ paths:
       summary: get information on the selected game
       description: get the meta data of a currently active game
       operationId: getGame
+      parameters:
+        - name: id
+          description: id of the game
+          in: path
+          schema:
+            type: integer
+          required: true
       responses:
         "200":
           description: successfully game meta response
@@ -537,8 +539,9 @@ paths:
         "101":
           description: upgraded to a websocket connection
           content:
-            x/wss:
+            text/plain:
               schema:
+                type: string
         "400":
           description: cant connect to the game
           content:
