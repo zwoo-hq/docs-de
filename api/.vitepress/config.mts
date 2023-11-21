@@ -1,6 +1,6 @@
 import { defineConfig } from "vitepress";
 
-const sites = [
+const concepts = [
   {
     text: "Concepts",
     items: [
@@ -23,18 +23,16 @@ const sites = [
     ],
     activeMatch: `^/concepts/`,
   },
+];
+
+const specs = [
   {
-    text: "Specs",
-    items: [
-      {
-        text: "HTTP API",
-        link: "/swagger-frame",
-      },
-      {
-        text: "ZRP",
-        link: "/zrp",
-      },
-    ],
+    text: "HTTP API",
+    link: "/swagger-frame",
+  },
+  {
+    text: "ZRP",
+    link: "/zrp",
   },
 ];
 
@@ -43,11 +41,28 @@ export default defineConfig({
   title: "ZWOO API Docs",
   description: "The zwoo api documentation",
   themeConfig: {
-    nav: [{ text: "Home", link: "/" }, ...sites],
+    nav: [
+      { text: "Home", link: "/" },
+      ...concepts,
+      {
+        text: "Specs",
+        items: [...specs],
+      },
+    ],
     i18nRouting: true,
 
     sidebar: [
-      ...sites,
+      ...concepts,
+      {
+        text: "Specs",
+        items: [
+          {
+            text: "Overview",
+            link: "/spec-overview",
+          },
+          ...specs,
+        ],
+      },
       {
         text: "Zwoo Docs",
         link: "/not-ready",
