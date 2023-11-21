@@ -1,6 +1,19 @@
 {
   "name": "@zwoo/docs",
   "description": "",
-  "scripts": {},
-  "devDependencies": {}
+  "scripts": {
+    "api:dev": "vitepress dev api",
+    "api:build": "vitepress build api",
+    "postapi:build": "node ./api/scripts/build.mjs",
+    "preapi:serve": "yarn api:build",
+    "api:serve": "vitepress serve api"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "vitepress": "^1.0.0-rc.29",
+    "zx": "^7.2.3"
+  },
+  "dependencies": {
+    "@zwoo/theme-docs": "^1.0.0-beta.0"
+  }
 }
