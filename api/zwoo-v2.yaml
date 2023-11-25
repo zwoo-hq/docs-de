@@ -44,7 +44,7 @@ tags:
     description: available on a distributed zwoo game server
 
 paths:
-  /sever/discover:
+  /discover:
     post:
       tags:
         - info
@@ -93,32 +93,6 @@ paths:
                 $ref: "#/components/schemas/UserSession"
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
-        "500":
-          $ref: "#/components/responses/InternalServerErrorResponse"
-  /auth/create:
-    post:
-      tags:
-        - authentication
-        - master
-      summary: create a new account
-      description: create a new user account
-      operationId: createAccount
-      requestBody:
-        description: the new accounts data
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CreateAccount"
-        required: true
-      responses:
-        "200":
-          description: the account was successfully created
-        "400":
-          description: cant create the user account
-          content:
-            application/problem+json:
-              schema:
-                $ref: "#/components/schemas/Problem"
         "500":
           $ref: "#/components/responses/InternalServerErrorResponse"
   /auth/login:
@@ -193,6 +167,33 @@ paths:
           $ref: "#/components/responses/UnauthorizedResponse"
         "500":
           $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /account/create:
+    post:
+      tags:
+        - user
+        - master
+      summary: create a new account
+      description: create a new user account
+      operationId: createAccount
+      requestBody:
+        description: the new accounts data
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAccount"
+        required: true
+      responses:
+        "200":
+          description: the account was successfully created
+        "400":
+          description: cant create the user account
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
   /account/delete:
     post:
       tags:
@@ -215,6 +216,38 @@ paths:
           description: the account was successfully deleted
         "401":
           $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/verify:
+    get:
+      tags:
+        - user
+        - master
+      summary: verify a user account
+      description: set the specified account as verified
+      operationId: verify
+      parameters:
+        - name: id
+          description: the account id
+          in: query
+          schema:
+            type: integer
+          required: true
+        - name: code
+          description: the verification code
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: the account was verified
+        "400":
+          description: the account cannot be verified
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
         "500":
           $ref: "#/components/responses/InternalServerErrorResponse"
   /account/verify/resend:
