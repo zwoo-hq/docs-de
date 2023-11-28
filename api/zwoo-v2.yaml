@@ -651,7 +651,7 @@ paths:
         "200":
           description: successful version history response
           content:
-            text/plain:
+            application/json:
               schema:
                 $ref: "#/components/schemas/VersionHistory"
         "500":
@@ -670,7 +670,7 @@ paths:
           description: the version of the changelog to return
           in: path
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         "200":
@@ -935,7 +935,6 @@ components:
           type: boolean
       required:
         - name
-        - password
         - usePassword
     JoinGame:
       type: object
