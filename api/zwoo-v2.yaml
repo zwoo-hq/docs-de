@@ -176,6 +176,12 @@ paths:
       summary: create a new account
       description: create a new user account
       operationId: createAccount
+      parameters:
+        - name: lng
+          description: the language code of the preferred language to send the email in
+          in: query
+          schema:
+            $ref: "#/components/schemas/LanguageCode"
       requestBody:
         description: the new accounts data
         content:
@@ -258,6 +264,12 @@ paths:
       summary: resend the verification request
       description: resend the account verification email to an user
       operationId: resendVerify
+      parameters:
+        - name: lng
+          description: the language code of the preferred language to send the email in
+          in: query
+          schema:
+            $ref: "#/components/schemas/LanguageCode"
       requestBody:
         description: the users account email address
         content:
@@ -359,6 +371,12 @@ paths:
       summary: request the reset of the users password
       description: setup a password reset for a user
       operationId: requestPasswordReset
+      parameters:
+        - name: lng
+          description: the language code of the preferred language to send the email in
+          in: query
+          schema:
+            $ref: "#/components/schemas/LanguageCode"
       requestBody:
         description: the users account identification
         content:
@@ -976,6 +994,9 @@ components:
         - message
         - captchaToken
         - site
+    LanguageCode:
+      type: string
+      enum: [de, en]
 
   responses:
     UserNotFoundResponse:
