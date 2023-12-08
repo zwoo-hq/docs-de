@@ -59,11 +59,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ClientInfo"
+              $ref: "#/components/schemas/VersionInfo"
         required: true
       responses:
         "200":
           description: Successfully discovered client - all versions are compatible
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VersionInfo"
         "400":
           description: Some versions may be incompatible
           content:
@@ -779,7 +783,7 @@ components:
         status: 400
         detail: 'header Content-Type has unexpected value "application/xml"'
         instance: "urn:request:local/JMOlctsKV8-000001"
-    ClientInfo:
+    VersionInfo:
       type: object
       properties:
         version:
@@ -798,6 +802,10 @@ components:
           type: string
         wins:
           type: integer
+      required:
+        - username
+        - email
+        - wins
     CreateAccount:
       type: object
       properties:
@@ -845,7 +853,7 @@ components:
         password:
           type: string
       required:
-        - settings
+        - password
     VerifyEmail:
       type: object
       properties:
