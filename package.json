@@ -6,7 +6,15 @@
     "api:build": "vitepress build api",
     "postapi:build": "node ./api/scripts/build.mjs",
     "preapi:serve": "yarn api:build",
-    "api:serve": "vitepress serve api"
+    "api:serve": "vitepress serve api",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "postdocs:build": "node ./docs/scripts/build.mjs",
+    "docs:serve": "vitepress serve docs",
+    "dev:dev": "vitepress dev docs-dev",
+    "dev:build": "vitepress build docs-dev",
+    "postdev:build": "node ./docs-dev/scripts/build.mjs",
+    "dev:serve": "vitepress serve docs-dev"
   },
   "devDependencies": {
     "serve": "^14.2.1",
