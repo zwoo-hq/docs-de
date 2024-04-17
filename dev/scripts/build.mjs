@@ -2,13 +2,13 @@ import "zx/globals";
 $.verbose = false;
 
 const start = performance.now();
-console.log(chalk.cyan("api-docs: build"));
+console.log(chalk.cyan("dev-docs: build"));
 
-console.log(chalk.blue("api-docs: renaming local search index"));
-const dir = "./api/.vitepress/dist/assets/chunks";
-const targetDir = "./api/.vitepress/dist/assets";
+console.log(chalk.blue("dev-docs: renaming local search index"));
+const dir = "./dev/.vitepress/dist/assets/chunks";
+const targetDir = "./dev/.vitepress/dist/assets";
 const startsWith = "@localSearchIndex";
-console.log(chalk.green(`search dir: ${source}`));
+console.log(chalk.green(`search dir: ${dir}`));
 console.log(chalk.green(`starts with: ${startsWith}`));
 console.log(chalk.green(`target dir: ${targetDir}`));
 
@@ -27,6 +27,6 @@ for (const file of possibleFiles) {
 const end = performance.now();
 console.log(
   chalk.cyan(
-    `api-docs: build finished in ${((end - start) / 1000).toFixed(3)}s`
+    `dev-docs: build finished in ${((end - start) / 1000).toFixed(3)}s`
   )
 );

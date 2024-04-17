@@ -25,7 +25,7 @@ console.log(chalk.blue("api-docs: renaming local search index"));
 const dir = "./api/.vitepress/dist/assets/chunks";
 const targetDir = "./api/.vitepress/dist/assets";
 const startsWith = "@localSearchIndex";
-console.log(chalk.green(`search dir: ${source}`));
+console.log(chalk.green(`search dir: ${dir}`));
 console.log(chalk.green(`starts with: ${startsWith}`));
 console.log(chalk.green(`target dir: ${targetDir}`));
 

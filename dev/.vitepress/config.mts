@@ -4,6 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "ZWOO Developer Docs",
   description: "The zwoo api documentation",
+  base: "/dev/",
   themeConfig: {
     nav: [{ text: "Home", link: "/" }],
     i18nRouting: true,

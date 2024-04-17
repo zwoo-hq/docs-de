@@ -11,10 +11,10 @@
     "docs:build": "vitepress build docs",
     "postdocs:build": "node ./docs/scripts/build.mjs",
     "docs:serve": "vitepress serve docs",
-    "dev:dev": "vitepress dev docs-dev",
-    "dev:build": "vitepress build docs-dev",
-    "postdev:build": "node ./docs-dev/scripts/build.mjs",
-    "dev:serve": "vitepress serve docs-dev"
+    "dev:dev": "vitepress dev dev",
+    "dev:build": "vitepress build dev",
+    "postdev:build": "node ./dev/scripts/build.mjs",
+    "dev:serve": "vitepress serve dev"
   },
   "devDependencies": {
     "serve": "^14.2.1",
