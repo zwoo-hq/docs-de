@@ -1,0 +1,27 @@
+{
+  "name": "@zwoo/docs-de",
+  "description": "",
+  "scripts": {
+    "api:dev": "vitepress dev api",
+    "api:build": "vitepress build api",
+    "postapi:build": "node ./api/scripts/build.mjs",
+    "preapi:serve": "yarn api:build",
+    "api:serve": "vitepress serve api",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "postdocs:build": "node ./docs/scripts/build.mjs",
+    "docs:serve": "vitepress serve docs",
+    "dev:dev": "vitepress dev dev",
+    "dev:build": "vitepress build dev",
+    "postdev:build": "node ./dev/scripts/build.mjs",
+    "dev:serve": "vitepress serve dev"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "vitepress": "^1.0.0-rc.29",
+    "zx": "^7.2.3"
+  },
+  "dependencies": {
+    "@zwoo/theme-docs": "^1.0.0-beta.0"
+  }
+}

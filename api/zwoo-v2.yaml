@@ -1,0 +1,1059 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json
+
+openapi: 3.0.3
+info:
+  title: Zwoo API
+  description: |-
+    This is the second generation zwoo API specification. It is used for client -
+     server and server - server communication.
+    # Architecture
+    There a 3 types of servers:
+    ## Master
+    This is the main zwoo server with global accounts and persisted data.
+    ## Local Game Server
+    This is a lightweight server distributed with the tauri app, that can be used
+    for local and offline games. All data on this server will be non persisted. It
+    acts in isolation of the official zwoo infrastructure.
+    ## Distributed Game Server
+    This is a server for distributed game workloads. It only works in combination 
+    with a master server, because the master has to handle authentication and 
+    sessions.
+  termsOfService: https://zwoo.igd20.de/
+  contact:
+    email: contact@igd20.de
+  version: 2.1.0
+
+servers:
+  - url: https://zwoo.igd20.de/
+    description: The main zwoo server
+
+tags:
+  - name: info
+    description: server status & co.
+  - name: authentication
+    description: authentication and session management
+  - name: user
+    description: user data and account management
+  - name: game
+    description: everything game related
+  - name: master
+    description: available on the zwoo master server
+  - name: local-server
+    description: available on a local zwoo game server
+  - name: game-server
+    description: available on a distributed zwoo game server
+
+paths:
+  /discover:
+    post:
+      tags:
+        - info
+        - master
+        - local-server
+        - game-server
+      summary: Get the core server information
+      description: runs checks on the server whether the client & server are compatible
+      operationId: discoverServer
+      requestBody:
+        description: the connecting clients info
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VersionInfo"
+        required: true
+      responses:
+        "200":
+          description: Successfully discovered client - all versions are compatible
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VersionInfo"
+        "400":
+          description: Some versions may be incompatible
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /auth/user:
+    get:
+      tags:
+        - authentication
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: return the current users information
+      description: get the session of the current user
+      operationId: getUser
+      responses:
+        "200":
+          description: the current users session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSession"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /auth/login:
+    post:
+      tags:
+        - authentication
+        - master
+      summary: log into your account
+      description: log into a user account
+      operationId: login
+      requestBody:
+        description: the user login information
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+        required: true
+      responses:
+        "200":
+          description: the login was successful
+        "400":
+          description: cant login with the provided credentials
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /auth/login-guest:
+    post:
+      tags:
+        - authentication
+        - local-server
+      summary: log into a temporary guest account
+      description: log into a temporary guest account on a local server
+      operationId: loginGuest
+      requestBody:
+        description: the user login information
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuestLogin"
+        required: true
+      responses:
+        "200":
+          description: the login was successful
+        "400":
+          description: cant login with the provided details
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /auth/logout:
+    get:
+      tags:
+        - authentication
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: logout of your account
+      description: destroy the current authentication session
+      operationId: logout
+      responses:
+        "200":
+          description: successfully logged out
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /account/create:
+    post:
+      tags:
+        - user
+        - master
+      summary: create a new account
+      description: create a new user account
+      operationId: createAccount
+      parameters:
+        - name: lng
+          description: the language code of the preferred language to send the email in
+          in: query
+          schema:
+            $ref: "#/components/schemas/LanguageCode"
+      requestBody:
+        description: the new accounts data
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAccount"
+        required: true
+      responses:
+        "200":
+          description: the account was successfully created
+        "400":
+          description: cant create the user account
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/delete:
+    post:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: delete the users account
+      description: delete the current users account
+      operationId: deleteAccount
+      requestBody:
+        description: the users password to reverify
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeleteAccount"
+        required: true
+      responses:
+        "200":
+          description: the account was successfully deleted
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/verify:
+    get:
+      tags:
+        - user
+        - master
+      summary: verify a user account
+      description: set the specified account as verified
+      operationId: verify
+      parameters:
+        - name: id
+          description: the account id
+          in: query
+          schema:
+            type: integer
+          required: true
+        - name: code
+          description: the verification code
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: the account was verified
+        "400":
+          description: the account cannot be verified
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/verify/resend:
+    post:
+      tags:
+        - user
+        - master
+      summary: resend the verification request
+      description: resend the account verification email to an user
+      operationId: resendVerify
+      parameters:
+        - name: lng
+          description: the language code of the preferred language to send the email in
+          in: query
+          schema:
+            $ref: "#/components/schemas/LanguageCode"
+      requestBody:
+        description: the users account email address
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VerifyEmail"
+        required: true
+      responses:
+        "200":
+          description: the email was successfully send
+        "400":
+          description: the account is already verified
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "404":
+          $ref: "#/components/responses/UserNotFoundResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/settings:
+    get:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: return the users synced settings
+      description: send the current users synced settings
+      operationId: getUserSettings
+      responses:
+        "200":
+          description: successful settings response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserSettings"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+    post:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: update the users synced settings
+      operationId: setUserSettings
+      requestBody:
+        description: the new user settings
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserSettings"
+        required: true
+      responses:
+        "200":
+          description: successful settings response
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/password/change:
+    post:
+      tags:
+        - user
+        - master
+      security:
+        - cookie: []
+      summary: change the users password
+      description: set a new password for a user account
+      operationId: changePassword
+      requestBody:
+        description: the users old and new password
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChangePassword"
+        required: true
+      responses:
+        "200":
+          description: the password was successfully changes
+        "400":
+          description: the new password is invalid
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/password/request-reset:
+    post:
+      tags:
+        - user
+        - master
+      summary: request the reset of the users password
+      description: setup a password reset for a user
+      operationId: requestPasswordReset
+      parameters:
+        - name: lng
+          description: the language code of the preferred language to send the email in
+          in: query
+          schema:
+            $ref: "#/components/schemas/LanguageCode"
+      requestBody:
+        description: the users account identification
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RequestPasswordReset"
+        required: true
+      responses:
+        "200":
+          description: the password reset was successfully requested
+        "404":
+          $ref: "#/components/responses/UserNotFoundResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /account/password/reset:
+    post:
+      tags:
+        - user
+        - master
+      summary: reset the users password
+      description: reset the password of an user
+      operationId: resetPassword
+      requestBody:
+        description: the new password and reset identification
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResetPassword"
+        required: true
+      responses:
+        "200":
+          description: the password was successfully reset
+        "400":
+          description: the new password is invalid
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "404":
+          $ref: "#/components/responses/UserNotFoundResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /leaderboard:
+    get:
+      tags:
+        - game
+        - master
+      summary: return the current leaderboard
+      description: return the current leaderboard
+      operationId: getLeaderboard
+      responses:
+        "200":
+          description: successful leaderboard response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Leaderboard"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /leaderboard/self:
+    get:
+      security:
+        - cookie: []
+      tags:
+        - game
+        - master
+      summary: return the current position of the authenticated user in the leaderboard
+      description: returns the current position in the leaderboard of the authenticated user
+      operationId: getLeaderboardPosition
+      responses:
+        "200":
+          description: successful leaderboard position response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaderboardPosition"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /game/list:
+    get:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: query games
+      description: query the currently active games
+      operationId: getGames
+      parameters:
+        - name: recommended
+          description: server should used recommended order
+          in: query
+          schema:
+            type: boolean
+        - name: offset
+          description: the number of items to skip before starting to collect the result
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+          required: true
+        - name: limit
+          description: the number of items to return
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 100
+          required: true
+        - name: filter
+          description: a query string to search by
+          in: query
+          schema:
+            type: string
+        - name: publicOnly
+          description: whether to include public only games
+          in: query
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: successfully games list response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GamesList"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /game/create:
+    post:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: create a game
+      description: create a game
+      operationId: createGame
+      requestBody:
+        description: information about the game to create
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateGame"
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/responses/JoinGameResponse"
+        "400":
+          description: cant create the game
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /game/join:
+    post:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: join a game
+      description: join a game
+      operationId: joinGame
+      requestBody:
+        description: information about which game the client wants to join how
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JoinGame"
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/responses/JoinGameResponse"
+        "400":
+          description: the client cant join the game
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "404":
+          description: cant find selected game
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /game/{id}:
+    get:
+      tags:
+        - game
+        - master
+        - local-server
+      security:
+        - cookie: []
+      summary: get information on the selected game
+      description: get the meta data of a currently active game
+      operationId: getGame
+      parameters:
+        - name: id
+          description: id of the game
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        "200":
+          description: successfully game meta response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameMeta"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "404":
+          description: cant find selected game
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /game/{id}/connect:
+    get:
+      tags:
+        - game
+        - master
+        - local-server
+        - game-server
+      security:
+        - game-token: []
+      summary: setup a websocket connection on a game
+      description: connect via websocket to a game
+      operationId: connectToGame
+      parameters:
+        - name: id
+          description: the id of the game to connect to
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        "101":
+          description: upgraded to a websocket connection
+          content:
+            text/plain:
+              schema:
+                type: string
+        "400":
+          description: cant connect to the game
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "404":
+          description: cant find selected game
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /changelog:
+    get:
+      tags:
+        - info
+        - master
+      summary: return all versions in the changelog
+      description: sends all available version in the version history
+      operationId: getVersionHistory
+      responses:
+        "200":
+          description: successful version history response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VersionHistory"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /changelog/{version}:
+    get:
+      tags:
+        - info
+        - master
+      summary: return the latest changelog
+      description: sends the selected changelog
+      operationId: getChangelog
+      parameters:
+        - name: version
+          description: the version of the changelog to return
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: successful changelog response
+          content:
+            text/plain:
+              schema:
+                type: string
+        "404":
+          description: changelog for provided version not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+  /contact:
+    post:
+      tags:
+        - info
+        - master
+      summary: send a contact request
+      description: register a new contact request in the system
+      operationId: sendContactRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactForm"
+        required: true
+      responses:
+        "200":
+          description: successfully created a new contact request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameMeta"
+        "400":
+          description: captcha test failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+
+components:
+  schemas:
+    Problem:
+      type: object
+      description: A Problem Details object (RFC 7807)
+      additionalProperties: true
+      properties:
+        type:
+          type: string
+          format: uri
+          description: Type contains a URI that identifies the problem type.
+          example: "urn:problem-type:bad-request"
+        title:
+          type: string
+          description: A a short, human-readable summary of the problem type.
+          example: Bad Request
+        status:
+          type: integer
+          format: int32
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+          minimum: 400
+          maximum: 599
+          example: 400
+        detail:
+          type: string
+          description: A human-readable explanation specific to this occurrence of the problem.
+          example: header Content-Type has unexpected value \"application/xml\"
+        instance:
+          type: string
+          format: uri
+          description: A URI reference that identifies the specific occurrence of the problem.
+          example: "urn:request:local/JMOlctsKV8-000001"
+      required:
+        - type
+        - title
+        - status
+        - detail
+      example:
+        type: "urn:problem-type:bad-request"
+        title: "Bad Request"
+        status: 400
+        detail: 'header Content-Type has unexpected value "application/xml"'
+        instance: "urn:request:local/JMOlctsKV8-000001"
+    VersionInfo:
+      type: object
+      properties:
+        version:
+          type: string
+        zrpVersion:
+          type: string
+        mode:
+          enum: [online, local]
+      required:
+        - version
+        - zrpVersion
+    UserSession:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        wins:
+          type: integer
+      required:
+        - username
+        - email
+        - wins
+    CreateAccount:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        acceptedTerms:
+          type: boolean
+        code:
+          type: string
+        captchaToken:
+          type: string
+      required:
+        - username
+        - email
+        - password
+        - acceptedTerms
+        - captchaToken
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        captchaToken:
+          type: string
+      required:
+        - email
+        - password
+        - captchaToken
+    GuestLogin:
+      type: object
+      properties:
+        username:
+          type: string
+      required:
+        - username
+    DeleteAccount:
+      type: object
+      properties:
+        password:
+          type: string
+      required:
+        - password
+    VerifyEmail:
+      type: object
+      properties:
+        email:
+          type: string
+      required:
+        - email
+    UserSettings:
+      type: object
+      properties:
+        settings:
+          type: string
+      required:
+        - settings
+    ChangePassword:
+      type: object
+      properties:
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+      required:
+        - oldPassword
+        - newPassword
+    RequestPasswordReset:
+      type: object
+      properties:
+        email:
+          type: string
+        captchaToken:
+          type: string
+      required:
+        - email
+        - captchaToken
+    ResetPassword:
+      type: object
+      properties:
+        code:
+          type: string
+        password:
+          type: string
+        captchaToken:
+          type: string
+      required:
+        - code
+        - password
+        - captchaToken
+    Leaderboard:
+      type: object
+      properties:
+        leaderboard:
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              wins:
+                type: integer
+            required:
+              - username
+              - wins
+      required:
+        - leaderboard
+    LeaderboardPosition:
+      type: object
+      properties:
+        position:
+          type: integer
+      required:
+        - position
+    GamesList:
+      type: object
+      properties:
+        games:
+          type: array
+          items:
+            $ref: "#/components/schemas/GameMeta"
+      required:
+        - games
+    GameMeta:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        isPublic:
+          type: boolean
+        playerCount:
+          type: integer
+      required:
+        - id
+        - name
+        - isPublic
+        - playerCount
+    CreateGame:
+      type: object
+      properties:
+        name:
+          type: string
+        password:
+          type: string
+        usePassword:
+          type: boolean
+      required:
+        - name
+        - usePassword
+    JoinGame:
+      type: object
+      properties:
+        gameId:
+          type: integer
+        password:
+          type: string
+        role:
+          type: integer
+      required:
+        - gameId
+        - role
+    VersionHistory:
+      type: object
+      properties:
+        versions:
+          type: array
+          items:
+            type: string
+      required:
+        - versions
+    ContactForm:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        message:
+          type: string
+        captchaToken:
+          type: string
+        site:
+          type: string
+      required:
+        - name
+        - email
+        - message
+        - captchaToken
+        - site
+    LanguageCode:
+      type: string
+      enum: [de, en]
+
+  responses:
+    UserNotFoundResponse:
+      description: cant find a user account with the corresponding email address
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+    UnauthorizedResponse:
+      description: there is no active authentication session
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+    InternalServerErrorResponse:
+      description: an unexpected internal error happened
+      content:
+        application/problem+json:
+          schema:
+            $ref: "#/components/schemas/Problem"
+    JoinGameResponse:
+      description: in game information for the client in the game he joined
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              gameId:
+                type: integer
+              isRunning:
+                type: boolean
+              role:
+                type: integer
+              ownId:
+                type: integer
+            required:
+              - gameId
+              - isRunning
+              - role
+              - ownId
+
+  securitySchemes:
+    cookie:
+      type: apiKey
+      in: cookie
+      name: auth
+    game-token:
+      type: apiKey
+      in: query
+      name: token
