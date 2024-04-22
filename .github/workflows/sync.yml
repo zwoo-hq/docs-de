@@ -1,0 +1,28 @@
+on: workflow_dispatch
+
+jobs:
+  syncDocs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reset the default branch with upstream changes
+        run: |
+          git remote add upstream https://github.com/zwoo/docs.git
+          git fetch upstream main:upstream-main
+          git reset --hard upstream-main
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%m/%d/%Y')"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: upstream-changes
+          branch-suffix: short-commit-hash
+          assignees: fabiankachlock
+          title: "chore(sync): with upstream changes"
+          body: |
+            # Sync Upstream Changes
+
+            ${{ steps.date.outputs.date }}
+
+            This PR is automatically created by the [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
