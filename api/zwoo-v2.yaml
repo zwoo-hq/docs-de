@@ -21,7 +21,7 @@ info:
   termsOfService: https://zwoo.igd20.de/
   contact:
     email: contact@igd20.de
-  version: 2.0.0
+  version: 2.1.0
 
 servers:
   - url: https://zwoo.igd20.de/
@@ -790,6 +790,8 @@ components:
           type: string
         zrpVersion:
           type: string
+        mode:
+          enum: [online, local]
       required:
         - version
         - zrpVersion
