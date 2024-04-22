@@ -17,6 +17,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
           branch: upstream-changes
           branch-suffix: short-commit-hash
           assignees: fabiankachlock
