@@ -14,14 +14,15 @@
     "dev:dev": "vitepress dev dev",
     "dev:build": "vitepress build dev",
     "postdev:build": "node ./dev/scripts/build.mjs",
-    "dev:serve": "vitepress serve dev"
+    "dev:serve": "vitepress serve dev",
+    "build": "pnpm run '/^(?!post|pre).+:build$/'"
   },
   "devDependencies": {
     "serve": "^14.2.1",
-    "vitepress": "^1.0.0-rc.29",
+    "vitepress": "^1.1.3",
     "zx": "^7.2.3"
   },
   "dependencies": {
-    "@zwoo/theme-docs": "^1.0.0-beta.0"
+    "@zwoo/theme-docs": "1.0.0-rc.0"
   }
 }
