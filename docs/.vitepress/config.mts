@@ -2,10 +2,10 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ZWOO Docs",
-  description: "The zwoo user documentation",
+  title: "ZWOO Dokumentation",
+  description: "Die zwoo Benutzer Dokumentation.",
   themeConfig: {
-    nav: [{ text: "Home", link: "/" }],
+    nav: [{ text: "Startseite", link: "/" }],
     i18nRouting: true,
 
     sidebar: [],
