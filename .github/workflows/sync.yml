@@ -1,4 +1,8 @@
-on: workflow_dispatch
+name: Sync Upstream
+on:
+  workflow_dispatch:
+#  schedule:
+#    - cron: "22 2 * * *"   # <=== Change this value
 
 jobs:
   syncDocs:
@@ -12,10 +16,11 @@ jobs:
           git reset --hard upstream-main
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%m/%d/%Y')"
+        run: echo "date=$(date +'%m/%d/%Y')" >> $GITHUB_OUTPUT
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
           branch: upstream-changes
           branch-suffix: short-commit-hash
           assignees: fabiankachlock
@@ -23,6 +28,6 @@ jobs:
           body: |
             # Sync Upstream Changes
 
-            ${{ steps.date.outputs.date }}
+            Synced changes as of ${{ steps.date.outputs.date }}.
 
             This PR is automatically created by the [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action.
