@@ -3,15 +3,15 @@ import { locales, socialLinks, themeConfig } from "../../commonConfig.mts";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ZWOO Developer Docs",
-  description: "The zwoo api documentation",
-  base: "/dev/",
+title: "ZWOO Entwickler",
+  description: "Die zwoo Entwickler Dokumentation.",
+  base: "/de/dev/",
   locales,
   themeConfig: {
     socialLinks,
     ...themeConfig,
 
-    nav: [{ text: "Home", link: "/" }],
+    nav: [{ text: "Startseite", link: "/" }],
     sidebar: [],
   },
 });

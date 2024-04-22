@@ -1,8 +1,8 @@
 name: Sync Upstream
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: "22 2 * * *"   # <=== Change this value
+  schedule:
+    - cron: "22 2 * * *"
 
 jobs:
   syncDocs:

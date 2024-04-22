@@ -41,7 +41,7 @@ const specs = [
 export default defineConfig({
   title: "ZWOO API Docs",
   description: "The zwoo api documentation",
-  base: "/api/",
+  base: "/de/api/",
   locales,
   themeConfig: {
     socialLinks,
