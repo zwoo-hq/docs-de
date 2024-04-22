@@ -1,12 +1,6 @@
 name: Sync Upstream
 on: workflow_dispatch
 
-permissions:
-  actions: write
-  contents: write
-  pull-requests: write
-  workflows: write
-
 jobs:
   syncDocs:
     runs-on: ubuntu-latest
