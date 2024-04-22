@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Reset the default branch with upstream changes
         run: |
-          git remote add upstream https://github.com/zwoo/docs.git
+          git remote add upstream https://github.com/zwoo-hq/docs.git
           git fetch upstream main:upstream-main
           git reset --hard upstream-main
       - name: Get current date
