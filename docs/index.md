@@ -4,13 +4,13 @@ layout: home
 
 hero:
   name: ZWOO
-  tagline: Second generation card games.
+  tagline: Kartenspiele der zweiten Generation.
   actions:
     - theme: brand
-      text: Play ZWOO!
+      text: ZWOO spielen!
       link: http://zwoo.igd20.de/
     - theme: alt
-      text: Getting started
+      text: Erste Schritte
       link: /starting
     - theme: alt
       text: FAQ

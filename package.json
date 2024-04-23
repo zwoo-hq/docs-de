@@ -1,5 +1,5 @@
 {
-  "name": "@zwoo/docs",
+  "name": "@zwoo/docs-de",
   "description": "",
   "scripts": {
     "api:dev": "vitepress dev api",

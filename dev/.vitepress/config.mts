@@ -7,15 +7,15 @@ import {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ZWOO Developer Docs",
-  description: "The zwoo api documentation",
-  base: "/dev/",
-  locales: createLocales("/dev/"),
+  title: "ZWOO Entwickler",
+  description: "Die zwoo Entwickler Dokumentation.",
+  base: "/de/dev/",
+  locales: createLocales("/de/dev/"),
   themeConfig: {
     socialLinks,
     ...themeConfig,
 
-    nav: [{ text: "Home", link: "/" }],
+    nav: [{ text: "Startseite", link: "/" }],
     sidebar: [],
   },
 });
