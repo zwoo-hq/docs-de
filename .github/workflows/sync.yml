@@ -21,7 +21,7 @@ jobs:
         id: check_unpushed
         run: |
           git fetch origin
-          UNPUSHED=$(git log origin/main..main)
+          UNPUSHED=$(git log origin/main..upstream/main)
           if [ -z "$UNPUSHED" ]; then
             echo "HAS_COMMITS=false" >> $GITHUB_OUTPUT
           else
