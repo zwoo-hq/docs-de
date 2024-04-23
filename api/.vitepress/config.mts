@@ -1,5 +1,9 @@
 import { defineConfig } from "vitepress";
-import { locales, socialLinks, themeConfig } from "../../commonConfig.mts";
+import {
+  createLocales,
+  socialLinks,
+  themeConfig,
+} from "../../commonConfig.mts";
 
 const concepts = [
   {
@@ -42,7 +46,7 @@ export default defineConfig({
   title: "ZWOO API Docs",
   description: "The zwoo api documentation",
   base: "/de/api/",
-  locales,
+  locales: createLocales("/de/api/"),
   themeConfig: {
     socialLinks,
     ...themeConfig,

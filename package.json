@@ -15,7 +15,7 @@
     "dev:build": "vitepress build dev",
     "postdev:build": "node ./dev/scripts/build.mjs",
     "dev:serve": "vitepress serve dev",
-    "build": "pnpm run '/^(?!post|pre).+:build$/'"
+    "build": "yarn api:build && yarn docs:build && yarn dev:build"
   },
   "devDependencies": {
     "serve": "^14.2.1",
