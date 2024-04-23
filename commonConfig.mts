@@ -8,24 +8,23 @@ export const socialLinks: ThemeConfig["socialLinks"] = [
   { icon: "github", link: "https://github.com/zwoo-hq/docs" },
 ];
 
-export const locales: ConfigType["locales"] = {
+export const createLocales = (base: string): ConfigType["locales"] => ({
   root: {
     lang: "en",
     label: "English",
-    link: "/",
   },
   de: {
     lang: "de",
     label: "Deutsch",
-    link: "/de/",
+    link: "https://zwoo.igd20.de/docs/de" + base,
   },
-};
+});
 
 export const themeConfig: ThemeConfig = {
   search: {
     provider: "local",
   },
-  i18nRouting: true,
+  i18nRouting: false,
   footer: {
     copyright: "Copyright © 2021-present Fabian Kachlock",
   },

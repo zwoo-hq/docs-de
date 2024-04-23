@@ -1,11 +1,16 @@
 import { defineConfig } from "vitepress";
-import { locales, socialLinks, themeConfig } from "../../commonConfig.mts";
+import {
+  createLocales,
+  socialLinks,
+  themeConfig,
+} from "../../commonConfig.mts";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ZWOO Docs",
   description: "The zwoo user documentation",
-  locales,
+  base: "/",
+  locales: createLocales("/"),
   themeConfig: {
     socialLinks,
     ...themeConfig,
