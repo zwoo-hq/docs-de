@@ -9,7 +9,7 @@ import {
 export default defineConfig({
   title: "ZWOO Docs",
   description: "The zwoo user documentation",
-  base: "/",
+  base: "/docs/",
   locales: createLocales("/"),
   themeConfig: {
     socialLinks,
