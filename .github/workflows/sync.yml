@@ -21,10 +21,17 @@ jobs:
         id: check_unpushed
         run: |
           git fetch origin
+          echo 'a'
+          git log origin/main..upstream/main
+          echo 'b'
+          git log upstream/main..origin/main
           UNPUSHED=$(git log origin/main..upstream/main)
+          echo "UNPUSHED=$UNPUSHED"
           if [ -z "$UNPUSHED" ]; then
+            echo "no new commits - aborting pr creation"
             echo "HAS_COMMITS=false" >> $GITHUB_OUTPUT
           else
+            echo "new commits found - creating pr"
             echo "HAS_COMMITS=true" >> $GITHUB_OUTPUT
           fi
       - name: Create Pull Request
