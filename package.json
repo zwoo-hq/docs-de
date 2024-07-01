@@ -14,7 +14,9 @@
     "dev:build": "vitepress build dev",
     "dev:serve": "vitepress serve dev",
     "build": "yarn api:build && yarn docs:build && yarn dev:build",
-    "postbuild": "node ./scripts/build.mjs"
+    "prebuild": "node ./scripts/pre-build.mjs",
+    "postbuild": "node ./scripts/build.mjs",
+    "setup": "node ./scripts/pre-build.mjs"
   },
   "devDependencies": {
     "serve": "^14.2.1",

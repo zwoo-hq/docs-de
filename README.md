@@ -1,3 +1,5 @@
+![Header image](.github/assets/docs-social-image.png)
+
 # zwoo-hq/docs
 
 The official zwoo documentation.
@@ -12,11 +14,21 @@ This docs site consists of 3 individual vitepress sites for:
 
 Every site uses the [@zwoo/docs-theme](https://github.com/zwoo-hq/theme-docs) custom vitepress theme.
 
+## Languages
+
+| Language | Repo                                                  |
+| -------- | ----------------------------------------------------- |
+| de       | [zwoo-hq/docs-de](https://github.com/zwoo-hq/docs-de) |
+
 ## Development
 
 Install dependencies
 
 `pnpm i`
+
+and run the setup script to copy initial common files
+
+`pnpm run setup`
 
 And run a site:
 
