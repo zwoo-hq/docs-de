@@ -22,6 +22,6 @@
     "zx": "^7.2.3"
   },
   "dependencies": {
-    "@zwoo/theme-docs": "1.0.0-rc.0"
+    "@zwoo/theme-docs": "1.0.0-rc.1"
   }
 }
