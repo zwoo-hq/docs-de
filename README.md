@@ -1,10 +1,10 @@
-![Header image](.github/assets/docs-social-image.png)
+![Header image](.github/assets/docs-de-social-image.png)
 
-# zwoo-hq/docs
+# zwoo-hq/docs-de
 
 The official zwoo documentation.
 
-This is the original version written in english.
+This is the german translation.
 
 This docs site consists of 3 individual vitepress sites for:
 
@@ -16,9 +16,10 @@ Every site uses the [@zwoo/docs-theme](https://github.com/zwoo-hq/theme-docs) cu
 
 ## Languages
 
-| Language | Repo                                                  |
-| -------- | ----------------------------------------------------- |
-| de       | [zwoo-hq/docs-de](https://github.com/zwoo-hq/docs-de) |
+| Language | Repo                                            |
+| -------- | ----------------------------------------------- |
+| en       | [zwoo-hq/docs](https://github.com/zwoo-hq/docs) |
+| __de__   | this one                                        |
 
 ## Development
 
