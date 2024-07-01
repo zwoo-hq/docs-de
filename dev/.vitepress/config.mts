@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import {
+  commonHead,
   createLocales,
   socialLinks,
   themeConfig,
@@ -11,6 +12,7 @@ export default defineConfig({
   description: "Die zwoo Entwickler Dokumentation.",
   base: "/docs/de/dev/",
   locales: createLocales("/de/dev/"),
+  head: commonHead,
   themeConfig: {
     socialLinks,
     ...themeConfig,
