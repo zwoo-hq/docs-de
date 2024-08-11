@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 import {
-  commonHead,
+  createCommonHead,
+  createCommonNav,
   createLocales,
   socialLinks,
   themeConfig,
@@ -12,12 +13,26 @@ export default defineConfig({
   description: "The zwoo user documentation",
   base: "/docs/",
   locales: createLocales("/"),
-  head: commonHead,
+  head: createCommonHead("/docs/"),
   themeConfig: {
     socialLinks,
     ...themeConfig,
 
-    nav: [{ text: "Home", link: "/" }],
+    nav: [
+      {
+        text: "FAQ",
+        link: "/faq",
+      },
+      {
+        text: "Games",
+        link: "/games/",
+      },
+      {
+        text: "Rules",
+        link: "/rules/",
+      },
+      createCommonNav("/docs/"),
+    ],
     sidebar: [
       {
         text: "Overview",
@@ -28,9 +43,18 @@ export default defineConfig({
         link: "/getting-started",
       },
       {
+        text: "FAQ",
+        link: "/faq",
+      },
+      {
+        text: "ZWOO",
+        link: "https://zwoo.igd20.de",
+      },
+      {
         text: "Games",
         collapsed: false,
         base: "/games/",
+        link: "/index",
         items: [
           {
             text: "Online Games",
@@ -62,10 +86,8 @@ export default defineConfig({
         text: "Rules",
         collapsed: true,
         base: "/rules/",
-        items: [
-          { text: "Rule Overview", link: "/rules" },
-          { text: "Basics", link: "/basics" },
-        ],
+        link: "/index",
+        items: [{ text: "Basics", link: "/basics" }],
       },
       {
         text: "Guides",

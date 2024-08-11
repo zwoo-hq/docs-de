@@ -4,14 +4,22 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 type ConfigType = NonNullable<UserConfig<DefaultTheme.Config>>;
 type ThemeConfig = NonNullable<ConfigType["themeConfig"]>;
 
-export const commonHead: ConfigType["head"] = [
+export const createCommonHead = (base: string): ConfigType["head"] => [
   [
     "link",
-    { rel: "icon", type: "image/svg+xml", href: "/zwoo_logo_simple_dark.svg" },
+    {
+      rel: "icon",
+      type: "image/svg+xml",
+      href: base + "zwoo_logo_simple_dark.svg",
+    },
   ],
   [
     "link",
-    { rel: "icon", type: "image/png", href: "/zwoo_logo_simple_dark.png" },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: base + "zwoo_logo_simple_dark.png",
+    },
   ],
   ["meta", { name: "theme-color", content: "#0ea5e9" }],
   ["meta", { property: "og:type", content: "website" }],
@@ -31,6 +39,27 @@ export const commonHead: ConfigType["head"] = [
   // ],
   ["meta", { property: "og:url", content: "https://zwoo.igd20.de/docs/" }],
 ];
+
+export const createCommonNav = (
+  base: string
+): NonNullable<ThemeConfig["nav"]>[number] => ({
+  text: "Switch to",
+  items: [
+    { text: "ZWOO", link: "https://zwoo.igd20.de" },
+    {
+      text: "Documentation",
+      link: "https://zwoo.igd20.de/docs/",
+    },
+    {
+      text: "Developer Docs",
+      link: "https://zwoo.igd20.de/docs/dev/",
+    },
+    {
+      text: "API Reference",
+      link: "https://zwoo.igd20.de/docs/api/",
+    },
+  ].filter((item) => !item.link.endsWith(base)),
+});
 
 export const socialLinks: ThemeConfig["socialLinks"] = [
   { icon: "github", link: "https://github.com/zwoo-hq/docs" },
@@ -57,8 +86,8 @@ export const themeConfig: ThemeConfig = {
     copyright: "Copyright © 2021-present Fabian Kachlock",
   },
   logo: {
-    dark: "/zwoo_logo_simple_dark.svg",
-    light: "/zwoo_logo_simple_light.svg",
+    dark: "/zwoo_logo_simple_none_dark.svg",
+    light: "/zwoo_logo_simple_none_light.svg",
     width: 512,
     height: 512,
   },
