@@ -4,6 +4,9 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 type ConfigType = NonNullable<UserConfig<DefaultTheme.Config>>;
 type ThemeConfig = NonNullable<ConfigType["themeConfig"]>;
 
+export const ZWOO_URL = "https://zwoo.igd20.de/";
+export const ZWOO_DOCS_URL = ZWOO_URL + "docs/";
+
 export const createCommonHead = (base: string): ConfigType["head"] => [
   [
     "link",
@@ -37,7 +40,7 @@ export const createCommonHead = (base: string): ConfigType["head"] => [
   //   "meta",
   //   { property: "og:image", content: "https://zwoo.igd20.de/docs/" },
   // ],
-  ["meta", { property: "og:url", content: "https://zwoo.igd20.de/docs/" }],
+  ["meta", { property: "og:url", content: ZWOO_DOCS_URL }],
 ];
 
 export const createCommonNav = (
@@ -45,18 +48,18 @@ export const createCommonNav = (
 ): NonNullable<ThemeConfig["nav"]>[number] => ({
   text: "Switch to",
   items: [
-    { text: "ZWOO", link: "https://zwoo.igd20.de" },
+    { text: "ZWOO", link: ZWOO_URL },
     {
       text: "Documentation",
-      link: "https://zwoo.igd20.de/docs/",
+      link: ZWOO_DOCS_URL,
     },
     {
       text: "Developer Docs",
-      link: "https://zwoo.igd20.de/docs/dev/",
+      link: ZWOO_DOCS_URL + "dev/",
     },
     {
       text: "API Reference",
-      link: "https://zwoo.igd20.de/docs/api/",
+      link: ZWOO_DOCS_URL + "api/",
     },
   ].filter((item) => !item.link.endsWith(base)),
 });
@@ -73,7 +76,7 @@ export const createLocales = (base: string): ConfigType["locales"] => ({
   de: {
     lang: "de",
     label: "Deutsch",
-    link: "https://zwoo.igd20.de/docs/de" + base,
+    link: ZWOO_DOCS_URL + "de" + base,
   },
 });
 

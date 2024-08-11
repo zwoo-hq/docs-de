@@ -1,23 +1,26 @@
 import { defineConfig } from "vitepress";
 import {
-  commonHead,
+  createCommonHead,
+  createCommonNav,
   createLocales,
   socialLinks,
   themeConfig,
 } from "../../commonConfig.mts";
 
+const basePath = "/docs/dev/";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ZWOO Developer Docs",
   description: "The zwoo api documentation",
-  base: "/docs/dev/",
+  base: basePath,
   locales: createLocales("/dev/"),
-  head: commonHead,
+  head: createCommonHead(basePath),
   themeConfig: {
     socialLinks,
     ...themeConfig,
 
-    nav: [{ text: "Home", link: "/" }],
+    nav: [createCommonNav(basePath)],
     sidebar: [],
   },
 });

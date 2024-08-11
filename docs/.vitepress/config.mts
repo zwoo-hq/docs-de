@@ -5,6 +5,8 @@ import {
   createLocales,
   socialLinks,
   themeConfig,
+  ZWOO_DOCS_URL,
+  ZWOO_URL,
 } from "../../commonConfig.mts";
 
 // https://vitepress.dev/reference/site-config
@@ -48,40 +50,9 @@ export default defineConfig({
       },
       {
         text: "ZWOO",
-        link: "https://zwoo.igd20.de",
+        link: ZWOO_URL,
       },
-      {
-        text: "Games",
-        collapsed: false,
-        base: "/games/",
-        link: "/index",
-        items: [
-          {
-            text: "Online Games",
-            link: "/online-games",
-          },
-          {
-            text: "Offline Games",
-            link: "/offline-games",
-          },
-          {
-            text: "Bots",
-            link: "/bots",
-          },
-          {
-            text: "Game Profiles",
-            link: "/game-profiles",
-          },
-          {
-            text: "Leaderboard",
-            link: "/leaderboard",
-          },
-          {
-            text: "Local Games",
-            link: "/local-games",
-          },
-        ],
-      },
+
       {
         text: "Rules",
         collapsed: true,
@@ -106,11 +77,11 @@ export default defineConfig({
       },
       {
         text: "Developers",
-        link: "https://zwoo.igd20.de/docs/dev",
+        link: ZWOO_DOCS_URL + "dev/",
       },
       {
         text: "API Reference",
-        link: "https://zwoo.igd20.de/docs/api",
+        link: ZWOO_DOCS_URL + "api/",
       },
     ],
   },
