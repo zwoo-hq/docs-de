@@ -18,6 +18,7 @@ Every site uses the [@zwoo/docs-theme](https://github.com/zwoo-hq/theme-docs) cu
 
 | Language | Repo                                                  |
 | -------- | ----------------------------------------------------- |
+| __en__   | this one                                              |
 | de       | [zwoo-hq/docs-de](https://github.com/zwoo-hq/docs-de) |
 
 ## Development
