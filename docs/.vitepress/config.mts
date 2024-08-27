@@ -45,20 +45,51 @@ export default defineConfig({
         link: "/getting-started",
       },
       {
+        text: "Account",
+        link: "/account",
+      },
+      {
         text: "FAQ",
         link: "/faq",
       },
-      {
-        text: "ZWOO",
-        link: ZWOO_URL,
-      },
-
       {
         text: "Rules",
         collapsed: true,
         base: "/rules/",
         link: "/index",
         items: [{ text: "Basics", link: "/basics" }],
+      },
+      {
+        text: "Games",
+        collapsed: true,
+        base: "/games/",
+        link: "/index",
+        items: [
+          {
+            text: "Online Games",
+            link: "/online-games",
+          },
+          {
+            text: "Bots",
+            link: "/bots",
+          },
+          {
+            text: "Leaderboard",
+            link: "/leaderboard",
+          },
+          {
+            text: "Profiles",
+            link: "/game-profiles",
+          },
+          {
+            text: "Offline Games",
+            link: "/offline-games",
+          },
+          {
+            text: "Local Games",
+            link: "/local-games",
+          },
+        ],
       },
       {
         text: "Guides",
@@ -72,8 +103,8 @@ export default defineConfig({
         ],
       },
       {
-        text: "Account",
-        link: "/account",
+        text: "ZWOO",
+        link: ZWOO_URL,
       },
       {
         text: "Developers",
