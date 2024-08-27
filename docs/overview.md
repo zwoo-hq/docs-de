@@ -10,6 +10,6 @@ If you are looking for the developer documentation, please refer to [zwoo.igd20.
 
 You can find the whole overview of the documentation in the sidebar on the left. Here are a few important links:
 
-- [About games](/games/index.md)
-- [Rules](/rules/index.md)
-- [Managing your account](/account.md)
+- [About games](./games/)
+- [Rules](./rules/)
+- [Managing your account](./account)

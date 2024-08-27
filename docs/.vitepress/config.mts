@@ -55,50 +55,47 @@ export default defineConfig({
       {
         text: "Rules",
         collapsed: true,
-        base: "/rules/",
-        link: "/index",
-        items: [{ text: "Basics", link: "/basics" }],
+        link: "/rules/",
+        items: [{ text: "Basics", link: "/rules/basics" }],
       },
       {
         text: "Games",
         collapsed: true,
-        base: "/games/",
-        link: "/index",
+        link: "/games/",
         items: [
           {
             text: "Online Games",
-            link: "/online-games",
+            link: "/games/online-games",
           },
           {
             text: "Bots",
-            link: "/bots",
+            link: "/games/bots",
           },
           {
             text: "Leaderboard",
-            link: "/leaderboard",
+            link: "/games/leaderboard",
           },
           {
             text: "Profiles",
-            link: "/game-profiles",
+            link: "/games/game-profiles",
           },
           {
             text: "Offline Games",
-            link: "/offline-games",
+            link: "/games/offline-games",
           },
           {
             text: "Local Games",
-            link: "/local-games",
+            link: "/games/local-games",
           },
         ],
       },
       {
         text: "Guides",
         collapsed: true,
-        base: "/guides/",
         items: [
           {
             text: "TODO",
-            link: "/todo",
+            link: "/guides/todo",
           },
         ],
       },

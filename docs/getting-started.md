@@ -8,5 +8,5 @@ Welcome to ZWOO! To get started playing games, just follow these simple steps:
 4. **Log in**: once you have verified your account, you can log in at [zwoo.igd20.de/login](https://zwoo.igd20.de/login).
 5. **Start playing**: gather your friends and start playing games!
 
-While your waiting you can take a look at the [game rules](/rules/index.md) and the [game modes](/games/index.md).
+While your waiting you can take a look at the [game rules](./rules/index) and the [game modes](./games/index).
 
