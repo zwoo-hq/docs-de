@@ -4,4 +4,4 @@ Offline games are a special type of zwoo games that can be played without an int
 
 ## Restrictions
 
-[Game profiles](./game-profiles.md) 
+[Game profiles](./game-profiles.md) are currently not supported in offline games. This means that you cannot apply your game profiles to an offline game.  
