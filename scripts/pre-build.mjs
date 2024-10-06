@@ -17,6 +17,11 @@ targets.forEach((target) => {
   for (const file of publicFiles) {
     const filePath = path.join(publicDir, file);
     const copyPath = path.join(targetDir, file);
+
+    if (!fs.existsSync(copyPath)) {
+      fs.mkdirpSync(targetDir);
+    }
+
     console.log(chalk.blueBright(`  - found: ${filePath}`));
     console.log(chalk.blueBright(`  - copied to: ${copyPath}`));
     fs.copyFileSync(filePath, copyPath);
