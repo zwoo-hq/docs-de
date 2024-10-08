@@ -86,7 +86,8 @@ export const themeConfig: ThemeConfig = {
   },
   i18nRouting: false,
   footer: {
-    copyright: "Copyright © 2021-present Fabian Kachlock",
+    copyright: "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt)",
+    message: "Made with <3 by Fabian Kachlock and the zwoo team.",
   },
   logo: {
     dark: "/zwoo_logo_simple_none_dark.svg",
