@@ -15,10 +15,35 @@ export default defineConfig({
   description: "The zwoo user documentation",
   base: "/docs/",
   locales: createLocales("/"),
-  head: createCommonHead("/docs/"),
+  head: [
+    ...createCommonHead(),
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/docs/zwoo_logo_simple_dark.svg",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/docs/zwoo_logo_simple_dark.png",
+      },
+    ],
+  ],
   themeConfig: {
     socialLinks,
     ...themeConfig,
+
+    logo: {
+      dark: "/zwoo_logo_simple_none_dark.svg",
+      light: "/zwoo_logo_simple_none_light.svg",
+      width: 512,
+      height: 512,
+    },
 
     nav: [
       {

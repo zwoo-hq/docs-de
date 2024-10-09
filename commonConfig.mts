@@ -1,4 +1,4 @@
-import { DefaultTheme, UserConfig } from "vitepress";
+import { DefaultTheme, HeadConfig, UserConfig } from "vitepress";
 
 type NonNullable<T> = T extends null | undefined ? never : T;
 type ConfigType = NonNullable<UserConfig<DefaultTheme.Config>>;
@@ -7,23 +7,7 @@ type ThemeConfig = NonNullable<ConfigType["themeConfig"]>;
 export const ZWOO_URL = "https://zwoo.igd20.de/";
 export const ZWOO_DOCS_URL = ZWOO_URL + "docs/";
 
-export const createCommonHead = (base: string): ConfigType["head"] => [
-  [
-    "link",
-    {
-      rel: "icon",
-      type: "image/svg+xml",
-      href: base + "zwoo_logo_simple_dark.svg",
-    },
-  ],
-  [
-    "link",
-    {
-      rel: "icon",
-      type: "image/png",
-      href: base + "zwoo_logo_simple_dark.png",
-    },
-  ],
+export const createCommonHead = (): HeadConfig[] => [
   ["meta", { name: "theme-color", content: "#0ea5e9" }],
   ["meta", { property: "og:type", content: "website" }],
   ["meta", { property: "og:locale", content: "en" }],
@@ -88,11 +72,5 @@ export const themeConfig: ThemeConfig = {
   footer: {
     copyright: "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt)",
     message: "Made with <3 by Fabian Kachlock and the zwoo team.",
-  },
-  logo: {
-    dark: "/zwoo_logo_simple_none_dark.svg",
-    light: "/zwoo_logo_simple_none_light.svg",
-    width: 512,
-    height: 512,
   },
 };
