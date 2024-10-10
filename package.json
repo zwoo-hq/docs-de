@@ -19,7 +19,6 @@
     "setup": "node ./scripts/pre-build.mjs"
   },
   "devDependencies": {
-    "serve": "^14.2.3",
     "vitepress": "^1.4.0",
     "zx": "^8.1.9"
   },
