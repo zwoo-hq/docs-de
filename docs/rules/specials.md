@@ -1,9 +1,5 @@
 # Special rules
 
-::: tip WIP
-This section of the documentation is a work in progress. Content may be incomplete or subject to change.
-:::
-
 ZWOO offers a unique set of special rules, these are currently:
 
 ## Add draw amounts
