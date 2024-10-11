@@ -81,7 +81,12 @@ export default defineConfig({
         text: "Rules",
         collapsed: true,
         link: "/rules/",
-        items: [{ text: "Basics", link: "/rules/basics" }],
+        items: [
+          { text: "Basics", link: "/rules/basics" },
+          { text: "Special rules", link: "/rules/specials" },
+          { text: "Pile customizations", link: "/rules/pile" },
+          { text: "Room customizations", link: "/rules/room" },
+        ],
       },
       {
         text: "Games",
