@@ -43,14 +43,14 @@ const specs = [
   },
 ];
 
-const basePath = "/docs/api/";
+const basePath = "/docs/de/api/";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ZWOO API Docs",
   description: "The zwoo api documentation",
   base: basePath,
-  locales: createLocales("/api/"),
+  locales: createLocales("/de/api/"),
   head: [
     ...createCommonHead(),
     [

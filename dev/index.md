@@ -4,30 +4,30 @@ layout: home
 
 hero:
   name: ZWOO DEV
-  tagline: Zwoo developer documentation.
+  tagline: Zwoo Entwickler Dokumentation.
   image:
     light: /zwoo_dev_docs_none_light.svg
     dark: /zwoo_dev_docs_none_dark.svg
     alt: ZWOO dev logo
   actions:
     - theme: brand
-      text: Play ZWOO!
+      text: ZWOO spielen!
       link: http://zwoo.igd20.de/
     - theme: alt
-      text: Contributing
+      text: Beitragen
       link: /contributing
     - theme: alt
       text: Bots
       link: /bots
     - theme: alt
-      text: ZWOO Docs
+      text: ZWOO Dokumentation
       link: /not-ready
 
 features:
-  - title: Create a bot
+  - title: Erstelle einen technischen Mitspieler
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /bots
-    linkText: Let's go!
+    linkText: Auf gehts!
     icon: 🤖
 ---
 

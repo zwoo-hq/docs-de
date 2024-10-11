@@ -10,12 +10,12 @@ export const ZWOO_DOCS_URL = ZWOO_URL + "docs/";
 export const createCommonHead = (): HeadConfig[] => [
   ["meta", { name: "theme-color", content: "#0ea5e9" }],
   ["meta", { property: "og:type", content: "website" }],
-  ["meta", { property: "og:locale", content: "en" }],
+  ["meta", { property: "og:locale", content: "de" }],
   [
     "meta",
     {
       property: "og:title",
-      content: "ZWOO Docs - the official zwoo documentation.",
+      content: "ZWOO Docs - die offizielle ZWOO Dokumentation.",
     },
   ],
   ["meta", { property: "og:site_name", content: "ZWOO Docs" }],
@@ -49,7 +49,7 @@ export const createCommonNav = (
 });
 
 export const socialLinks: ThemeConfig["socialLinks"] = [
-  { icon: "github", link: "https://github.com/zwoo-hq/docs" },
+  { icon: "github", link: "https://github.com/zwoo-hq/docs-de" },
 ];
 
 export const createLocales = (base: string): ConfigType["locales"] => ({

@@ -11,10 +11,10 @@ import {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ZWOO Docs",
-  description: "The zwoo user documentation",
-  base: "/docs/",
-  locales: createLocales("/"),
+  title: "ZWOO Dokumentation",
+  description: "Die zwoo Benutzer Dokumentation.",
+  base: "/docs/de/",
+  locales: createLocales("/de/"),
   head: [
     ...createCommonHead(),
     [
@@ -34,6 +34,7 @@ export default defineConfig({
       },
     ],
   ],
+
   themeConfig: {
     socialLinks,
     ...themeConfig,
@@ -47,7 +48,7 @@ export default defineConfig({
 
     nav: [
       {
-        text: "FAQ",
+        text: "FAQ",m
         link: "/faq",
       },
       {

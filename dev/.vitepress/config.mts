@@ -7,14 +7,14 @@ import {
   themeConfig,
 } from "../../commonConfig.mts";
 
-const basePath = "/docs/dev/";
+const basePath = "/docs/de/dev/";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "ZWOO Developer Docs",
-  description: "The zwoo api documentation",
+  title: "ZWOO Entwickler Docs",
+  description: "Die zwoo Entwickler Dokumentation.",
   base: basePath,
-  locales: createLocales("/dev/"),
+  locales: createLocales("/de/dev/"),
   head: [
     ...createCommonHead(),
     [
