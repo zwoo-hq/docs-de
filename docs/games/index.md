@@ -4,7 +4,7 @@
 This section of the documentation is a work in progress. Content may be incomplete or subject to change.
 :::
 
-Zwoo can be played in a variety of ways. The most popular one are online games, where you can play with your friends or other players from all over the world. But you can also play zwoo in a local network on lan parties or even offline against bots.
+ZWOO can be played in a variety of ways. The most popular one are online games, where you can play with your friends or other players from all over the world. But you can also play ZWOO in a local network on lan parties or even offline against bots.
 
 - [Online games](./online-games)
 - [Local games](./local-games)
