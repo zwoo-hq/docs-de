@@ -1,0 +1,13 @@
+html.dark .light-only {
+  display: none !important;
+}
+
+html:not(.dark) .dark-only {
+  display: none !important;
+}
+
+.light-only,
+.dark-only {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 0.25rem;
+}

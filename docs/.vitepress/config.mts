@@ -95,30 +95,13 @@ export default defineConfig({
         collapsed: true,
         link: "/games/",
         items: [
-          {
-            text: "Online Games",
-            link: "/games/online-games",
-          },
-          {
-            text: "Bots",
-            link: "/games/bots",
-          },
-          {
-            text: "Leaderboard",
-            link: "/games/leaderboard",
-          },
-          {
-            text: "Profiles",
-            link: "/games/game-profiles",
-          },
-          {
-            text: "Offline Games",
-            link: "/games/offline-games",
-          },
-          {
-            text: "Local Games",
-            link: "/games/local-games",
-          },
+          { text: "Online Games", link: "/games/online-games" },
+          { text: "Bots", link: "/games/bots" },
+          { text: "Leaderboard", link: "/games/leaderboard" },
+          { text: "Profiles", link: "/games/game-profiles" },
+          { text: "Settings", link: "/games/settings" },
+          { text: "Offline Games", link: "/games/offline-games" },
+          { text: "Local Games", link: "/games/local-games" },
         ],
       },
       {
