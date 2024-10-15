@@ -10,4 +10,6 @@ This section of the documentation is a work in progress. Content may be incomple
 
 ## The default game mode
 
+[\[back to the reference\]](./index.md#basics)
+
 > By default the objective of the game is to be the first player to play all their cards, or in other words, to be the first with an empty hand.

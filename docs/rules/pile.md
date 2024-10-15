@@ -1,5 +1,7 @@
 # Pile customizations
 
+[\[back to the reference\]](./index.md#cards-pile)
+
 The contents of the pile can be fully customized in the "Cards pile" rule group inside the rules widget.
 
 Inside this group, you can choose the amount of cards of a certain type that are inside the card pile. Because ZWOO simulates a real card pile, changes in the amounts will effectively change the probability of a card being drawn from the pile. 

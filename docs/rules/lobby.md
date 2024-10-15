@@ -6,6 +6,8 @@ Those are currently:
 
 ## Amount of players
 
+[\[back to the reference\]](./index.md#lobby-customizations)
+
 > Change maximum amount of players for your game.
 
 Here, you can set the maximum amount of players that are able to join your game. Once this limit is reached, new players aren't able to join your game.
@@ -18,6 +20,8 @@ Spectators and bots do not count against that limit. There is no hard limit on h
 
 
 ## Amount of cards
+
+[\[back to the reference\]](./index.md#lobby-customizations)
 
 > Choose the amount of cards each player is supplied with at the start of a game.
 

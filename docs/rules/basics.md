@@ -4,11 +4,15 @@
 
 ## Base rules
 
+[\[back to the reference\]](./index.md#basics)
+
 At the core of the game, you have to get rid of all your cards. You can do this by playing cards on the discard pile. The card you play must either have the same color or the same number as the card on the discard pile. If you can't play a card, you have to draw a card from the deck. The first player to get rid of all their cards wins the game.
 
 **But** there are a few twists: **special cards**. These cards can change the game in a variety of ways.
 
 ## Special Cards
+
+[\[back to the reference\]](./index.md#basics)
 
 ### Skip
 
@@ -32,5 +36,7 @@ The wild card is a very powerful card. Once played, you can select the color the
 This card is a combination of the "wild" and "draw 2" cards. Once played, you can select the color the next player has to place, and the next player will have to draw 4 cards.
 
 ## Objective of the game
+
+[\[back to the reference\]](./index.md#basics)
 
 The main objective of the game varies depending on the selected game mode. In the default mode, the goal is to be the first player to play all their cards, or, in other words, to be the first with an empty hand.
