@@ -1,9 +1,5 @@
 # Account
 
-::: tip WIP
-This section of the documentation is a work in progress. Content may be incomplete or subject to change.
-:::
-
 ## Create an account
 
 You can create a ZWOO account at [zwoo.igd20.de/create-account](https://zwoo.igd20.de/create-account).
@@ -13,7 +9,6 @@ For a new account you need to provide the following information:
 - **Username**: your username must be unique and at least 3 characters long.
 - **Email**: your email must be unique and a valid email address. It will be used to verify your account.
 - **Password**: your password must be at least 8 characters long and contain at least one number and one special character.
-- **Beta code**: while ZWOO is in beta mode, you need to request access. You can get a beta code simply by contacting us.
 
 After creating an account, you will receive an email with a verification link. You need to click on this link to verify your account.
 
