@@ -25,7 +25,7 @@ hero:
 
 features:
   - title: Online games
-    details: Play with your friends all around the world!
+    details: Play with your friends from all around the world!
     link: /games/
     linkText: Play games
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m9 15l-2.968 2.968A2.362 2.362 0 0 1 2 16.298V15l1.357-6.784A4 4 0 0 1 7.279 5h9.442a4 4 0 0 1 3.922 3.216L22 15v1.297a2.362 2.362 0 0 1-4.032 1.67L15 15z"/><path d="m9 5l1 2h4l1-2"/></g></svg>
@@ -37,14 +37,14 @@ features:
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M19 3v4m0 14V11m-7-8v12m0 6v-2M5 3v2m0 16V9"/><circle cx="19" cy="9" r="2" transform="rotate(90 19 9)"/><circle cx="12" cy="17" r="2" transform="rotate(90 12 17)"/><circle cx="5" cy="7" r="2" transform="rotate(90 5 7)"/></g></svg>
     # akar-icons:settings-vertical
   - title: Custom Cards
-    details: ZWOO has some custom cards with unique abilities, check them out!
+    details: Ready for custom cards with unique abilities and twerks?
     link: /rules/
     linkText: Learn more
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M12.5 4v8a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 12V4A1.5 1.5 0 0 1 5 2.5h6A1.5 1.5 0 0 1 12.5 4M11 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3zM5 8.25v-.5A5.56 5.56 0 0 0 7.75 4h.5A5.56 5.56 0 0 0 11 7.75v.5A5.56 5.56 0 0 0 8.25 12h-.5A5.56 5.56 0 0 0 5 8.25" clip-rule="evenodd"/></svg>
   - title: Bots
-    details: Got no friends around? Play against our bots!
+    details: Got no friends around? Meet our bots!
     link: /games/bots
-    linkText: Learn more
+    linkText: Bep boop
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M17.753 14a2.25 2.25 0 0 1 2.25 2.25v.904A3.75 3.75 0 0 1 18.696 20c-1.565 1.344-3.806 2-6.696 2s-5.128-.656-6.69-2a3.75 3.75 0 0 1-1.306-2.843v-.908A2.25 2.25 0 0 1 6.254 14zm0 1.5h-11.5a.75.75 0 0 0-.75.75v.907c0 .655.287 1.278.784 1.706C7.545 19.945 9.441 20.5 12 20.5s4.458-.557 5.72-1.64a2.25 2.25 0 0 0 .783-1.707v-.905a.75.75 0 0 0-.75-.75M11.9 2.006L12 2a.75.75 0 0 1 .743.648l.007.102l-.001.749h3.5a2.25 2.25 0 0 1 2.25 2.25v4.505a2.25 2.25 0 0 1-2.25 2.25h-8.5a2.25 2.25 0 0 1-2.25-2.25V5.75A2.25 2.25 0 0 1 7.75 3.5l3.5-.001V2.75a.75.75 0 0 1 .649-.743L12 2zM16.25 5h-8.5a.75.75 0 0 0-.75.75v4.504c0 .414.336.75.75.75h8.5a.75.75 0 0 0 .75-.75V5.75a.75.75 0 0 0-.75-.75m-6.5 1.5a1.25 1.25 0 1 1 0 2.498a1.25 1.25 0 0 1 0-2.498m4.492 0a1.25 1.25 0 1 1 0 2.498a1.25 1.25 0 0 1 0-2.498" /></svg>
     # fluent:bot-24-regular
   - title: Global leaderboard
@@ -55,7 +55,7 @@ features:
   # mdi:trophy-outline
   - title: Offline games
     details: Stranded without internet? No problem, play offline against bots!
-    link: /games/offline
+    link: /games/offline-games
     linkText: Explore games
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M22.99 9C19.15 5.16 13.8 3.76 8.84 4.78l2.52 2.52c3.47-.17 6.99 1.05 9.63 3.7zm-4 4a9.8 9.8 0 0 0-4.49-2.56l3.53 3.53zM2 3.05L5.07 6.1C3.6 6.82 2.22 7.78 1 9l1.99 2c1.24-1.24 2.67-2.16 4.2-2.77l2.24 2.24A9.7 9.7 0 0 0 5 13v.01L6.99 15a7.04 7.04 0 0 1 4.92-2.06L18.98 20l1.27-1.26L3.29 1.79zM9 17l3 3l3-3a4.237 4.237 0 0 0-6 0"/></svg>
   # ic:baseline-wifi-off
@@ -74,7 +74,7 @@ features:
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 6L10 18.5m-3.5-10L3 12l3.5 3.5m11-7L21 12l-3.5 3.5"/></svg>
     # iconoir:code
   - title: Show your support
-    details: And star the project on GitHub!
+    details: ...and give us a star on GitHub!
     link: https://github.com/fabiankachlock/zwoo
     linkText: Give a star
     external: true
@@ -83,7 +83,7 @@ features:
 ---
 
 <p class="hero-description">
-Welcome to ZWOO, the next generation of card games! Whether you're a fan of classic games or looking for a fresh, strategic twist, Zwoo is designed to keep you entertained for hours. With custom cards, innovative mechanics, and exciting multiplayer features, every game feels unique. Play with friends online or test your skills against clever AI bots in solo mode. Get ready to experience card games like never before – Zwoo is simple to learn but challenging to master!
+Welcome to ZWOO, the next generation of card games! Whether you're a fan of classic games or looking for a fresh, strategic twist, ZWOO is designed to keep you entertained for hours. With custom cards, innovative mechanics, and exciting multiplayer features, every game feels unique. Play with friends online or test your skills against clever bots in solo mode. Get ready to experience card games like never before – ZWOO is simple to learn but challenging to master!
 </p>
 
 <style>
@@ -111,7 +111,10 @@ Welcome to ZWOO, the next generation of card games! Whether you're a fan of clas
 }
 
 .image-bg {
-  border-radius: 30px !important;
+  border-radius: 50px !important;
+  rotate: 0deg;
+  transform-origin: 0 0;
+  animation: rotate-gradient linear 60s infinite;
 }
 
 .hero-description {
@@ -121,5 +124,21 @@ Welcome to ZWOO, the next generation of card games! Whether you're a fan of clas
 
 .VPHomeFeatures .icon {
   color: var(--color-secondary-text-hex);
+}
+
+.main .name {
+  font-size: 86px;
+  line-height: 98px;
+}
+
+@keyframes rotate-gradient {
+  19% { rotate: 120deg; }
+  27% { rotate: 70deg; }
+  48% { rotate: 210deg; }
+  58% { rotate: 150deg; }
+  61% { rotate: 170deg; }
+  73% { rotate: 90deg; }
+  79% { rotate: 130deg; }
+  100% { rotate: 0deg; }
 }
 </style>

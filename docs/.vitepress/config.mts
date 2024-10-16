@@ -82,37 +82,28 @@ export default defineConfig({
         text: "Rules",
         collapsed: true,
         link: "/rules/",
-        items: [{ text: "Basics", link: "/rules/basics" }],
+        items: [
+          { text: "Reference", link: "/rules/#reference" },
+          { text: "Basics", link: "/rules/basics" },
+          { text: "Special rules", link: "/rules/specials" },
+          { text: "Configuring rules", link: "/rules/configuring-rules" },
+          { text: "Pile customizations", link: "/rules/pile" },
+          { text: "Lobby customizations", link: "/rules/lobby" },
+          { text: "Game modes", link: "/rules/game-modes" },
+        ],
       },
       {
         text: "Games",
         collapsed: true,
         link: "/games/",
         items: [
-          {
-            text: "Online Games",
-            link: "/games/online-games",
-          },
-          {
-            text: "Bots",
-            link: "/games/bots",
-          },
-          {
-            text: "Leaderboard",
-            link: "/games/leaderboard",
-          },
-          {
-            text: "Profiles",
-            link: "/games/game-profiles",
-          },
-          {
-            text: "Offline Games",
-            link: "/games/offline-games",
-          },
-          {
-            text: "Local Games",
-            link: "/games/local-games",
-          },
+          { text: "Online Games", link: "/games/online-games" },
+          { text: "Bots", link: "/games/bots" },
+          { text: "Leaderboard", link: "/games/leaderboard" },
+          { text: "Profiles", link: "/games/game-profiles" },
+          { text: "Settings", link: "/games/settings" },
+          { text: "Offline Games", link: "/games/offline-games" },
+          { text: "Local Games", link: "/games/local-games" },
         ],
       },
       {
