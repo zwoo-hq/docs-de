@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 import {
-  commonHead,
+  createCommonHead,
+  createCommonNav,
   createLocales,
   socialLinks,
   themeConfig,
@@ -42,16 +43,43 @@ const specs = [
   },
 ];
 
+const basePath = "/docs/de/api/";
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "ZWOO API Docs",
   description: "The zwoo api documentation",
-  base: "/docs/de/api/",
+  base: basePath,
   locales: createLocales("/de/api/"),
-  head: commonHead,
+  head: [
+    ...createCommonHead(),
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: basePath + "zwoo_api_docs_simple_none_dark.svg",
+      },
+    ],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        href: basePath + "zwoo_api_docs_simple_none_dark.png",
+      },
+    ],
+  ],
   themeConfig: {
     socialLinks,
     ...themeConfig,
+
+    logo: {
+      dark: "/zwoo_api_docs_simple_none_dark.svg",
+      light: "/zwoo_api_docs_simple_none_light.svg",
+      width: 512,
+      height: 512,
+    },
 
     nav: [
       { text: "Home", link: "/" },
@@ -60,6 +88,7 @@ export default defineConfig({
         text: "Specs",
         items: [...specs],
       },
+      createCommonNav(basePath),
     ],
 
     sidebar: [

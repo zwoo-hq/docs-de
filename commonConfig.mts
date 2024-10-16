@@ -1,18 +1,13 @@
-import { DefaultTheme, UserConfig } from "vitepress";
+import { DefaultTheme, HeadConfig, UserConfig } from "vitepress";
 
 type NonNullable<T> = T extends null | undefined ? never : T;
 type ConfigType = NonNullable<UserConfig<DefaultTheme.Config>>;
 type ThemeConfig = NonNullable<ConfigType["themeConfig"]>;
 
-export const commonHead: ConfigType["head"] = [
-  [
-    "link",
-    { rel: "icon", type: "image/svg+xml", href: "/zwoo_logo_simple_dark.svg" },
-  ],
-  [
-    "link",
-    { rel: "icon", type: "image/png", href: "/zwoo_logo_simple_dark.png" },
-  ],
+export const ZWOO_URL = "https://zwoo.igd20.de/";
+export const ZWOO_DOCS_URL = ZWOO_URL + "docs/";
+
+export const createCommonHead = (): HeadConfig[] => [
   ["meta", { name: "theme-color", content: "#0ea5e9" }],
   ["meta", { property: "og:type", content: "website" }],
   ["meta", { property: "og:locale", content: "de" }],
@@ -29,8 +24,29 @@ export const commonHead: ConfigType["head"] = [
   //   "meta",
   //   { property: "og:image", content: "https://zwoo.igd20.de/docs/" },
   // ],
-  ["meta", { property: "og:url", content: "https://zwoo.igd20.de/docs/" }],
+  ["meta", { property: "og:url", content: ZWOO_DOCS_URL }],
 ];
+
+export const createCommonNav = (
+  base: string
+): NonNullable<ThemeConfig["nav"]>[number] => ({
+  text: "Switch to",
+  items: [
+    { text: "ZWOO", link: ZWOO_URL },
+    {
+      text: "Documentation",
+      link: ZWOO_DOCS_URL,
+    },
+    {
+      text: "Developer Docs",
+      link: ZWOO_DOCS_URL + "dev/",
+    },
+    {
+      text: "API Reference",
+      link: ZWOO_DOCS_URL + "api/",
+    },
+  ].filter((item) => !item.link.endsWith(base)),
+});
 
 export const socialLinks: ThemeConfig["socialLinks"] = [
   { icon: "github", link: "https://github.com/zwoo-hq/docs-de" },
@@ -44,7 +60,7 @@ export const createLocales = (base: string): ConfigType["locales"] => ({
   de: {
     lang: "de",
     label: "Deutsch",
-    link: "https://zwoo.igd20.de/docs/de" + base,
+    link: ZWOO_DOCS_URL + "de" + base,
   },
 });
 
@@ -54,12 +70,7 @@ export const themeConfig: ThemeConfig = {
   },
   i18nRouting: false,
   footer: {
-    copyright: "Copyright © 2021-present Fabian Kachlock",
-  },
-  logo: {
-    dark: "/zwoo_logo_simple_dark.svg",
-    light: "/zwoo_logo_simple_light.svg",
-    width: 512,
-    height: 512,
+    copyright: "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt)",
+    message: "Made with <3 by Fabian Kachlock and the zwoo team.",
   },
 };
