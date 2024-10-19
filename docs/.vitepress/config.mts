@@ -48,7 +48,7 @@ export default defineConfig({
 
     nav: [
       {
-        text: "FAQ",m
+        text: "FAQ",
         link: "/faq",
       },
       {
