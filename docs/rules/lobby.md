@@ -1,32 +1,31 @@
-# Room customizations
+# Raum-Anpassungen
 
-Beside rules or the card pile, there are also attributes of the game room that can be customized.
+Neben den Regeln oder dem Kartenstapel gibt es auch Attribute des Spielraums, die angepasst werden können.
 
-Those are currently:
+Diese sind derzeit:
 
-## Amount of players
+## Anzahl der Spieler
 
-[\[back to the reference\]](./index.md#lobby-customizations)
+[\[zurück zur Referenz\]](./index.md#lobby-anpassungen)
 
-> Change maximum amount of players for your game.
+> Ändere die maximale Anzahl der Spieler für dein Spiel.
 
-Here, you can set the maximum amount of players that are able to join your game. Once this limit is reached, new players aren't able to join your game.
+Hier kannst du die maximale Anzahl der Spieler festlegen, die deinem Spiel beitreten können. Sobald dieses Limit erreicht ist, können neue Spieler deinem Spiel nicht mehr beitreten.
 
-::: warning Attention
-The maximum amount of players in a game is currently 20.
+::: warning Achtung
+Die maximale Anzahl der Spieler in einem Spiel beträgt derzeit 20.
 :::
 
-Spectators and bots do not count against that limit. There is no hard limit on how many of those can join.
+Zuschauer und Bots zählen nicht gegen dieses Limit. Es gibt keine feste Grenze, wie viele von ihnen beitreten können.
 
+## Anzahl der Karten
 
-## Amount of cards
+[\[zurück zur Referenz\]](./index.md#lobby-anpassungen)
 
-[\[back to the reference\]](./index.md#lobby-customizations)
+> Wähle die Anzahl der Karten, die jeder Spieler zu Beginn eines Spiels erhält.
 
-> Choose the amount of cards each player is supplied with at the start of a game.
+Mit dieser Option kannst du die Anzahl der Anfangskarten festlegen, die ein Spieler zu Beginn des Spiels erhält.
 
-With this option, you can set the amount of initial cards a player will get at the start of the game.
-
-::: warning Attention
-The maximum amount of cards a player can get at the start of the game is 30.
+::: warning Achtung
+Die maximale Anzahl der Karten, die ein Spieler zu Beginn des Spiels erhalten kann, beträgt 30.
 :::

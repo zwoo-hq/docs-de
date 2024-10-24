@@ -1,5 +1,5 @@
 # Bots
 
 ::: tip WIP
-This section of the documentation is a work in progress. Content may be incomplete or subject to change.
+Dieser Abschnitt der Dokumentation befindet sich in Arbeit. Der Inhalt kann unvollständig sein oder Änderungen unterliegen.
 :::

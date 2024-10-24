@@ -1,39 +1,39 @@
-# Online Games
+# Online-Spiele
 
 ::: tip WIP
-This section of the documentation is a work in progress. Content may be incomplete or subject to change.
+Dieser Abschnitt der Dokumentation befindet sich in Arbeit. Der Inhalt kann unvollständig sein oder Änderungen unterliegen.
 :::
 
-Online games are the most popular type of games. They are played over the internet and can be played with players from all over the world. Online games can be played on a variety of devices, including computers, smartphones, and tablets.
+Online-Spiele sind die beliebteste Art von Spielen. Sie werden über das Internet gespielt und können mit Spielern aus der ganzen Welt gespielt werden. Online-Spiele können auf einer Vielzahl von Geräten gespielt werden, einschließlich Computern, Smartphones und Tablets.
 
-Online games provide the full variety of features that are available in ZWOO.
+Online-Spiele bieten die volle Vielfalt an Funktionen, die in ZWOO verfügbar sind.
 
-## Creating online games
+## Online-Spiele erstellen
 
-You can create a new online game by clicking "Create game" on your home page or the menu. Then you have to give your game a name. That name must be at least 3 characters long.
+Du kannst ein neues Online-Spiel erstellen, indem du auf deiner Startseite oder im Menü auf "Spiel erstellen" klickst. Dann musst du deinem Spiel einen Namen geben. Dieser Name muss mindestens 3 Zeichen lang sein.
 
-::: warning Warning
-The name of the game will be publicly visible. Make sure to don't put any sensitive information inside the name. 
+::: warning Achtung
+Der Name des Spiels wird öffentlich sichtbar sein. Stelle sicher, dass du keine sensiblen Informationen im Namen angibst.
 :::
 
-You can also decide to make your game **private** by unchecking the "Public" checkbox. When a game is private, players have to enter the password to enter. You will be able to set the password as soon as the "Public" checkbox is unchecked.
+Du kannst dein Spiel auch **privat** machen, indem du das Kontrollkästchen "Öffentlich" deaktivierst. Wenn ein Spiel privat ist, müssen die Spieler das Passwort eingeben, um beizutreten. Du kannst das Passwort festlegen, sobald das Kontrollkästchen "Öffentlich" deaktiviert ist.
 
-## Joining online games
+## Online-Spielen beitreten
 
-To join an existing online game, there a re 3 options:
+Um einem bestehenden Online-Spiel beizutreten, gibt es 3 Optionen:
 
-### Select the game
+### Spiel auswählen
 
-By clicking the "Join game" button on your home page or in the menu, a list of [available games](https://zwoo.igd20.de/available-games) shows. You can select the game you want to join from right here.
+Durch Klicken auf die Schaltfläche "Spiel beitreten" auf deiner Startseite oder im Menü wird eine Liste der [verfügbaren Spiele](https://zwoo.igd20.de/available-games) angezeigt. Du kannst das Spiel, dem du beitreten möchtest, direkt hier auswählen.
 
-### Join via a share link 
+### Über einen Freigabelink beitreten
 
-Your friend (that already joined the game) can send you a link to the game. By clicking that link you will automatically join that game.
+Dein Freund (der bereits dem Spiel beigetreten ist) kann dir einen Link zum Spiel senden. Durch Klicken auf diesen Link trittst du automatisch diesem Spiel bei.
 
-::: warning Attention
-Links to join ZWOO games always start with `https://zwoo.igd20.de/join/`, make sure you double check links strangers sent you before opening them. In doubt visit ZWOO directly and [select the game manually](#select-the-game).
+::: warning Achtung
+Links zum Beitreten von ZWOO-Spielen beginnen immer mit `https://zwoo.igd20.de/join/`, stelle sicher, dass du Links, die dir Fremde senden, vor dem Öffnen doppelt überprüfst. Im Zweifelsfall besuche ZWOO direkt und [wähle das Spiel manuell aus](#spiel-auswählen).
 :::
 
-### Scan the QR-Code
+### QR-Code scannen
 
-If you are currently with a friend and want to join a game he's in, you can just ask him to show the games QR-Code. This is only possible inside the lobby. By scanning it, you will automatically join the game.
+Wenn du dich gerade mit einem Freund befindest und einem Spiel beitreten möchtest, in dem er sich befindet, kannst du ihn einfach bitten, den QR-Code des Spiels zu zeigen. Dies ist nur in der Lobby möglich. Durch Scannen des Codes trittst du automatisch dem Spiel bei.

@@ -1,9 +1,9 @@
-# Configuring Rules
+# Regeln konfigurieren
 
 ::: tip WIP
-This section of the documentation is a work in progress. The content may be incomplete or subject to change.
+Dieser Abschnitt der Dokumentation befindet sich in Arbeit. Der Inhalt kann unvollständig sein oder Änderungen unterliegen.
 :::
 
-While waiting in the lobby for the game to start, the **host** of the game can change the rules. This can be done in the widget called "Rules". The current configuration of the rules will be broadcasted to all players so that everybody can see what rules are applied.
+Während Sie in der Lobby auf den Spielstart warten, kann der **Host** des Spiels die Regeln ändern. Dies kann im Widget "Regeln" erfolgen. Die aktuelle Konfiguration der Regeln wird an alle Spieler übertragen, sodass jeder sehen kann, welche Regeln angewendet werden.
 
-See also: [game profiles](../games/game-profiles.md)
+Siehe auch: [Spielprofile](../games/game-profiles.md)
