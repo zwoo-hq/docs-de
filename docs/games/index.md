@@ -1,20 +1,20 @@
 # Spiele
 
-ZWOO kann auf verschiedene Arten gespielt werden. Die beliebteste Art sind Online-Spiele, bei denen Sie mit Ihren Freunden oder anderen Spielern aus der ganzen Welt spielen können. Aber Sie können ZWOO auch in einem lokalen Netzwerk auf LAN-Partys oder sogar offline gegen Bots spielen.
+ZWOO kann auf verschiedene Arten gespielt werden. Die beliebteste Art sind Online-Spiele, bei denen du mit deinen Freunden oder anderen Spielern aus der ganzen Welt spielen kannst. Aber du kannst ZWOO auch in einem lokalen Netzwerk auf LAN-Partys oder sogar offline gegen Bots spielen.
 
 - [Online-Spiele](./online-games)
 - [Offline-Spiele](./offline-games)
 - [Lokale Spiele](./local-games)
 
-Für Online-Spiele gibt es eine globale [Rangliste](./leaderboard), in der Sie Ihre Fähigkeiten mit anderen Spielern vergleichen können.
+Für Online-Spiele gibt es eine globale [Rangliste](./leaderboard), in der du deine Fähigkeiten mit anderen Spielern vergleichen kannst.
 
 ## Spielmodi
 
-ZWOO unterstützt derzeit nur den Standard-Spielmodus. Aber wir arbeiten ständig an neuen Funktionen und experimentellen Spielmodi. Wenn Sie eine Idee für einen neuen Spielmodus haben, können Sie uns gerne kontaktieren.
+ZWOO unterstützt derzeit nur den Standard-Spielmodus. Aber wir arbeiten ständig an neuen Funktionen und experimentellen Spielmodi. Wenn du eine Idee für einen neuen Spielmodus hast, kannst du uns gerne kontaktieren.
 
 ## Spiele spielen
 
-Unabhängig von der Umgebung, in der Sie spielen, ist die Art und Weise, wie Spiele gespielt werden, immer gleich. Sie können entweder [Ihr eigenes Spiel erstellen](#todo) oder [einem bestehenden Spiel beitreten](#todo).
+Unabhängig von der Umgebung, in der du spielst, ist die Art und Weise, wie Spiele gespielt werden, immer gleich. Du kannst entweder [dein eigenes Spiel erstellen](#todo) oder [einem bestehenden Spiel beitreten](#todo).
 
 ## Rollen
 
@@ -26,7 +26,7 @@ In einem Spiel gibt es 3 verschiedene Rollen, die man haben kann:
 
 ## Die Lobby
 
-Sobald Sie ein Spiel erstellt oder einem Spiel beigetreten sind, starten Sie in der Lobby. Die Lobby besteht aus mehreren Widgets, von denen, je nach Ihrer Rolle oder Umgebung, nicht immer alle sichtbar sind.
+Sobald du ein Spiel erstellt oder einem Spiel beigetreten bist, startest du in der Lobby. Die Lobby besteht aus mehreren Widgets, von denen, je nach deiner Rolle oder Umgebung, nicht immer alle sichtbar sind.
 
 ### Spieler
 
@@ -58,7 +58,7 @@ Das "Bots"-Widget enthält eine Liste aller Bots, die sich derzeit im Spiel befi
 
 ## Während des Spiels
 
-Sobald der Host das Spiel startet, beginnt das Spiel. Im Spiel können Sie Ihre Gegner oben und Ihr Deck unten sehen. In der Mitte des Bildschirms befindet sich die oberste Karte des Ablagestapels. Auf der linken Seite des Bildschirms befindet sich der Nachziehstapel. Die Gegner werden mit den Namen der Spieler und ihrer aktuellen Kartenanzahl angezeigt. Der derzeit aktive Spieler und Sie selbst sind hervorgehoben.
+Sobald der Host das Spiel startet, beginnt das Spiel. Im Spiel kannst du deine Gegner oben und dein Deck unten sehen. In der Mitte des Bildschirms befindet sich die oberste Karte des Ablagestapels. Auf der linken Seite des Bildschirms befindet sich der Nachziehstapel. Die Gegner werden mit den Namen der Spieler und ihrer aktuellen Kartenanzahl angezeigt. Der derzeit aktive Spieler und du selbst sind hervorgehoben.
 
 ## Spielzusammenfassung
 

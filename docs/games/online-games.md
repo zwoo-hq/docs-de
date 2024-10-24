@@ -10,13 +10,13 @@ Online-Spiele bieten die volle Vielfalt an Funktionen, die in ZWOO verfügbar si
 
 ## Online-Spiele erstellen
 
-Sie können ein neues Online-Spiel erstellen, indem Sie auf Ihrer Startseite oder im Menü auf "Spiel erstellen" klicken. Dann müssen Sie Ihrem Spiel einen Namen geben. Dieser Name muss mindestens 3 Zeichen lang sein.
+Du kannst ein neues Online-Spiel erstellen, indem du auf deiner Startseite oder im Menü auf "Spiel erstellen" klickst. Dann musst du deinem Spiel einen Namen geben. Dieser Name muss mindestens 3 Zeichen lang sein.
 
 ::: warning Achtung
-Der Name des Spiels wird öffentlich sichtbar sein. Stellen Sie sicher, dass Sie keine sensiblen Informationen im Namen angeben.
+Der Name des Spiels wird öffentlich sichtbar sein. Stelle sicher, dass du keine sensiblen Informationen im Namen angibst.
 :::
 
-Sie können Ihr Spiel auch **privat** machen, indem Sie das Kontrollkästchen "Öffentlich" deaktivieren. Wenn ein Spiel privat ist, müssen die Spieler das Passwort eingeben, um beizutreten. Sie können das Passwort festlegen, sobald das Kontrollkästchen "Öffentlich" deaktiviert ist.
+Du kannst dein Spiel auch **privat** machen, indem du das Kontrollkästchen "Öffentlich" deaktivierst. Wenn ein Spiel privat ist, müssen die Spieler das Passwort eingeben, um beizutreten. Du kannst das Passwort festlegen, sobald das Kontrollkästchen "Öffentlich" deaktiviert ist.
 
 ## Online-Spielen beitreten
 
@@ -24,16 +24,16 @@ Um einem bestehenden Online-Spiel beizutreten, gibt es 3 Optionen:
 
 ### Spiel auswählen
 
-Durch Klicken auf die Schaltfläche "Spiel beitreten" auf Ihrer Startseite oder im Menü wird eine Liste der [verfügbaren Spiele](https://zwoo.igd20.de/available-games) angezeigt. Sie können das Spiel, dem Sie beitreten möchten, direkt hier auswählen.
+Durch Klicken auf die Schaltfläche "Spiel beitreten" auf deiner Startseite oder im Menü wird eine Liste der [verfügbaren Spiele](https://zwoo.igd20.de/available-games) angezeigt. Du kannst das Spiel, dem du beitreten möchtest, direkt hier auswählen.
 
 ### Über einen Freigabelink beitreten
 
-Ihr Freund (der bereits dem Spiel beigetreten ist) kann Ihnen einen Link zum Spiel senden. Durch Klicken auf diesen Link treten Sie automatisch diesem Spiel bei.
+Dein Freund (der bereits dem Spiel beigetreten ist) kann dir einen Link zum Spiel senden. Durch Klicken auf diesen Link trittst du automatisch diesem Spiel bei.
 
 ::: warning Achtung
-Links zum Beitreten von ZWOO-Spielen beginnen immer mit `https://zwoo.igd20.de/join/`, stellen Sie sicher, dass Sie Links, die Ihnen Fremde senden, vor dem Öffnen doppelt überprüfen. Im Zweifelsfall besuchen Sie ZWOO direkt und [wählen das Spiel manuell aus](#spiel-auswählen).
+Links zum Beitreten von ZWOO-Spielen beginnen immer mit `https://zwoo.igd20.de/join/`, stelle sicher, dass du Links, die dir Fremde senden, vor dem Öffnen doppelt überprüfst. Im Zweifelsfall besuche ZWOO direkt und [wähle das Spiel manuell aus](#spiel-auswählen).
 :::
 
 ### QR-Code scannen
 
-Wenn Sie sich gerade mit einem Freund befinden und einem Spiel beitreten möchten, in dem er sich befindet, können Sie ihn einfach bitten, den QR-Code des Spiels zu zeigen. Dies ist nur in der Lobby möglich. Durch Scannen des Codes treten Sie automatisch dem Spiel bei.
+Wenn du dich gerade mit einem Freund befindest und einem Spiel beitreten möchtest, in dem er sich befindet, kannst du ihn einfach bitten, den QR-Code des Spiels zu zeigen. Dies ist nur in der Lobby möglich. Durch Scannen des Codes trittst du automatisch dem Spiel bei.
