@@ -1,23 +1,23 @@
-# Local Games
+# Lokale Spiele
 
 ::: tip WIP
-This section of the documentation is a work in progress. Content may be incomplete or subject to change.
+Dieser Abschnitt der Dokumentation befindet sich in Arbeit. Der Inhalt kann unvollständig sein oder Änderungen unterliegen.
 :::
 
-Local games are a special type of ZWOO games that can be played without an internet connection inside a local network.
+Lokale Spiele sind eine spezielle Art von ZWOO-Spielen, die ohne Internetverbindung in einem lokalen Netzwerk gespielt werden können.
 
-::: warning Attention
-Local games need a host machine with the zwoo desktop app installed an running. The host machine must be connected to the same network as the other players.
+::: warning Achtung
+Lokale Spiele benötigen einen Host-Computer mit der installierten und laufenden ZWOO-Desktop-App. Der Host-Computer muss mit demselben Netzwerk wie die anderen Spieler verbunden sein.
 :::
 
-## Starting a local server
+## Einen lokalen Server starten
 
 TODO
 
-## Joining games on a local server
+## Spielen auf einem lokalen Server beitreten
 
 TODO
 
-## Advanced server configuration
+## Erweiterte Serverkonfiguration
 
 TODO

@@ -1,29 +1,29 @@
-# Account
+# Konto
 
-## Create an account
+## Konto erstellen
 
-You can create a ZWOO account at [zwoo.igd20.de/create-account](https://zwoo.igd20.de/create-account).
+Sie können ein ZWOO-Konto unter [zwoo.igd20.de/create-account](https://zwoo.igd20.de/create-account) erstellen.
 
-For a new account you need to provide the following information:
+Für ein neues Konto müssen Sie die folgenden Informationen angeben:
 
-- **Username**: your username must be unique and at least 3 characters long.
-- **Email**: your email must be unique and a valid email address. It will be used to verify your account.
-- **Password**: your password must be at least 8 characters long and contain at least one number and one special character.
+- **Benutzername**: Ihr Benutzername muss eindeutig und mindestens 3 Zeichen lang sein.
+- **E-Mail**: Ihre E-Mail muss eindeutig und eine gültige E-Mail-Adresse sein. Sie wird verwendet, um Ihr Konto zu verifizieren.
+- **Passwort**: Ihr Passwort muss mindestens 8 Zeichen lang sein und mindestens eine Zahl und ein Sonderzeichen enthalten.
 
-After creating an account, you will receive an email with a verification link. You need to click on this link to verify your account.
+Nach der Erstellung eines Kontos erhalten Sie eine E-Mail mit einem Bestätigungslink. Sie müssen auf diesen Link klicken, um Ihr Konto zu verifizieren.
 
-## Log in
+## Anmelden
 
-You can log in to your ZWOO account at [zwoo.igd20.de/login](https://zwoo.igd20.de/login). You will need your email and password to log in.
+Sie können sich bei Ihrem ZWOO-Konto unter [zwoo.igd20.de/login](https://zwoo.igd20.de/login) anmelden. Sie benötigen Ihre E-Mail und Ihr Passwort, um sich anzumelden.
 
-## Sync settings
+## Einstellungen synchronisieren
 
-While you are logged in, all your settings will be synced to your account. That means, whenever you log in on a new device, your settings will be automatically applied.
+Während Sie angemeldet sind, werden alle Ihre Einstellungen mit Ihrem Konto synchronisiert. Das bedeutet, dass Ihre Einstellungen automatisch angewendet werden, wenn Sie sich auf einem neuen Gerät anmelden.
 
-You can exclude settings from syncing by clicking on the `Cloud Icon` button in the settings menu. Or you can disable syncing completely by disabling the `Sync settings` option in the `Account` group of the settings menu.
+Sie können Einstellungen von der Synchronisierung ausschließen, indem Sie im Einstellungsmenü auf die Schaltfläche `Cloud-Symbol` klicken. Oder Sie können die Synchronisierung vollständig deaktivieren, indem Sie die Option `Einstellungen synchronisieren` in der Gruppe `Konto` des Einstellungsmenüs deaktivieren.
 
-The `Sync UI state` option keeps the state of the user interface in sync. This includes for example the state of widgets of the lobby or the quick menu.
+Die Option `UI-Zustand synchronisieren` hält den Zustand der Benutzeroberfläche synchron. Dies umfasst beispielsweise den Zustand der Widgets der Lobby oder des Schnellmenüs.
 
-## Delete an account
+## Konto löschen
 
-When logged in, you can delete your account in the `Account` group of the settings menu. You will need to confirm the deletion by entering your password.
+Wenn Sie angemeldet sind, können Sie Ihr Konto in der Gruppe `Konto` des Einstellungsmenüs löschen. Sie müssen die Löschung bestätigen, indem Sie Ihr Passwort eingeben.

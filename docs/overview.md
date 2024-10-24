@@ -1,16 +1,16 @@
-# ZWOO Documentation
+# ZWOO Dokumentation
 
-## About this documentation
+## Über diese Dokumentation
 
-This is the user-centric documentation for ZWOO. It focuses on user interactions, the game rules, and the game's mechanics. If you are looking for specific information, you can either use the search function or navigate through the sidebar.
+Dies ist die benutzerzentrierte Dokumentation für ZWOO. Sie konzentriert sich auf Benutzerinteraktionen, die Spielregeln und die Mechanik des Spiels. Wenn Sie nach spezifischen Informationen suchen, können Sie entweder die Suchfunktion verwenden oder durch die Seitenleiste navigieren.
 
-If you are looking for the developer documentation or the API reference, please refer to [zwoo.igd20.de/docs/dev](https://zwoo.igd20.de/docs/dev) and [zwoo.igd20.de/docs/api](https://zwoo.igd20.de/docs/api).
+Wenn Sie nach der Entwicklerdokumentation oder der API-Referenz suchen, besuchen Sie bitte [zwoo.igd20.de/docs/dev](https://zwoo.igd20.de/docs/dev) und [zwoo.igd20.de/docs/api](https://zwoo.igd20.de/docs/api).
 
-## Overview
+## Übersicht
 
-You can find the whole overview of the documentation in the sidebar on the left. Here are a few important links:
+Sie finden die gesamte Übersicht der Dokumentation in der Seitenleiste links. Hier sind einige wichtige Links:
 
-- [About games](./games/)
-- [Rules](./rules/)
-- [Managing your account](./account)
+- [Über Spiele](./games/)
+- [Regeln](./rules/)
+- [Verwaltung Ihres Kontos](./account)
 - [FAQ](./faq.md)

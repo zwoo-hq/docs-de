@@ -1,15 +1,15 @@
-# Game modes
+# Spielmodi
 
-::: danger Coming soon
-This feature is being implemented currently. Features described on this site may not be accessible. 
+::: danger Demnächst verfügbar
+Dieses Feature wird derzeit implementiert. Die auf dieser Seite beschriebenen Funktionen sind möglicherweise nicht zugänglich.
 :::
 
 ::: tip WIP
-This section of the documentation is a work in progress. Content may be incomplete or subject to change.
+Dieser Abschnitt der Dokumentation befindet sich in Arbeit. Der Inhalt kann unvollständig sein oder Änderungen unterliegen.
 :::
 
-## The default game mode
+## Der Standard-Spielmodus
 
-[\[back to the reference\]](./index.md#basics)
+[\[zurück zur Referenz\]](./index.md#basics)
 
-> By default the objective of the game is to be the first player to play all their cards, or in other words, to be the first with an empty hand.
+> Im Standardmodus ist das Ziel des Spiels, der erste Spieler zu sein, der alle seine Karten spielt, oder mit anderen Worten, der erste zu sein, der keine Karten mehr auf der Hand hat.

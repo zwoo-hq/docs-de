@@ -1,36 +1,35 @@
-# Rules
+# Regeln
 
-The ZWOO rules reference.
+Die ZWOO-Regelreferenz.
 
-## Getting started
+## Erste Schritte
 
-You are new to the game? - Check out [the basics](./basics.md)!
+Du bist neu im Spiel? - Schau dir [die Grundlagen](./basics.md) an!
 
-Check out [Special rules](./specials.md) for all rules.
+Schau dir [Spezialregeln](./specials.md) für alle Regeln an.
 
-You wonder how you can configure the rules of your game? - Check out [configuring rules](./configuring-rules.md), [pile customizations](./pile.md), or [game customizations](./lobby.md)!
+Du fragst dich, wie du die Regeln deines Spiels konfigurieren kannst? - Schau dir [Regeln konfigurieren](./configuring-rules.md), [Stapelanpassungen](./pile.md) oder [Spielanpassungen](./lobby.md) an!
 
-## Reference
+## Referenz
 
-### Basics
+### Grundlagen
 
-- [Foundational rules](./basics.md)
+- [Grundlegende Regeln](./basics.md)
 
-### Game modes
+### Spielmodi
 
-- [Default](./game-modes.md#the-default-game-mode)
+- [Standard](./game-modes.md#the-default-game-mode)
 
-### Lobby customizations
+### Lobby-Anpassungen
 
-- [Amount of players](./lobby.md#amount-of-players)
-- [Amount of cards](./lobby.md#amount-of-cards)
+- [Anzahl der Spieler](./lobby.md#amount-of-players)
+- [Anzahl der Karten](./lobby.md#amount-of-cards)
 
-### Special rules
+### Spezialregeln
 
-- [Add draw amount](./specials.md#add-draw-amounts)
-- [Deck swap](./specials.md#deck-swap)
+- [Zieh-Beträge hinzufügen](./specials.md#add-draw-amounts)
+- [Deck-Tausch](./specials.md#deck-swap)
 
-### Cards pile
+### Kartenstapel
 
-- [Pile](./pile.md)
-
+- [Stapel](./pile.md)

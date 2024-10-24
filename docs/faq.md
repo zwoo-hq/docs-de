@@ -1,5 +1,5 @@
 # FAQ
 
-::: details I forgot my password, how can I reset it?
-You can reset your password at [zwoo.igd20.de/request-password-reset](https://zwoo.igd20.de/request-password-reset). You will need to provide the email address of your account, and you will receive an email with a link to reset your password.
+::: details Ich habe mein Passwort vergessen, wie kann ich es zurücksetzen?
+Sie können Ihr Passwort unter [zwoo.igd20.de/request-password-reset](https://zwoo.igd20.de/request-password-reset) zurücksetzen. Sie müssen die E-Mail-Adresse Ihres Kontos angeben, und Sie erhalten eine E-Mail mit einem Link zum Zurücksetzen Ihres Passworts.
 :::
