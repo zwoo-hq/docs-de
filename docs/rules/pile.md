@@ -4,7 +4,7 @@
 
 Der Inhalt des Stapels kann im Regel-Widget in der Gruppe "Kartenstapel" vollständig angepasst werden.
 
-In dieser Gruppe können Sie die Anzahl der Karten eines bestimmten Typs im Kartenstapel auswählen. Da ZWOO einen echten Kartenstapel simuliert, ändern Änderungen an den Mengen effektiv die Wahrscheinlichkeit, dass eine Karte aus dem Stapel gezogen wird.
+In dieser Gruppe kann die Anzahl der Karten eines bestimmten Typs im Kartenstapel ausgewählt werden. Da ZWOO einen echten Kartenstapel simuliert, ändern Änderungen an den Mengen effektiv die Wahrscheinlichkeit, dass eine Karte aus dem Stapel gezogen wird.
 
 Darüber hinaus kann diese Funktion verwendet werden, um bestimmte Kartentypen zu deaktivieren, indem die Anzahl dieser Karten im Stapel auf 0 gesetzt wird.
 

@@ -8,7 +8,7 @@ ZWOO bietet eine einzigartige Reihe von Spezialregeln, die derzeit verfügbar si
 
 > Auf eine Ziehkarte können weitere Ziehkarten gelegt werden. Die Anzahl der zu ziehenden Karten wird addiert. Du kannst +2-Karten auf +4-Karten legen sowie +4-Karten auf +2-Karten.
 
-Diese Regel garantiert lustige Spiele mit deinen vielleicht bald ehemaligen Freunden. Der Clou dieser Regel ist, dass Ziehkarten wie +2 oder Wild +4 aufeinander gelegt werden können, wodurch die Anzahl der zu ziehenden Karten in die Höhe schnellen kann. Allerdings sollte sie mit Vorsicht verwendet werden, da die Möglichkeit besteht, dass der Freund, der die enorme Anzahl an Karten ziehen musste, nicht mehr lange dabei bleibt.
+Diese Regel garantiert lustige Spiele mit deinen vielleicht bald ehemaligen Freunden. Der Clou dieser Regel ist, dass Ziehkarten wie +2 oder Farbwahl +4 aufeinander gelegt werden können, wodurch die Anzahl der zu ziehenden Karten in die Höhe schnellen kann. Allerdings sollte sie mit Vorsicht verwendet werden, da die Möglichkeit besteht, dass der Freund, der die enorme Anzahl an Karten ziehen musste, nicht mehr lange dabei bleibt.
 
 ::: info Tipp
 Die aktuelle Anzahl der zu ziehenden Karten wird oben auf dem Stapel angezeigt.

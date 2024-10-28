@@ -8,7 +8,7 @@
 
 Im Kern des Spiels geht es darum, alle deine Karten loszuwerden. Du kannst dies tun, indem du Karten auf den Ablagestapel legst. Die Karte, die du spielst, muss entweder die gleiche Farbe oder die gleiche Zahl wie die Karte auf dem Ablagestapel haben. Wenn du keine Karte spielen kannst, musst du eine Karte vom Stapel ziehen. Der erste Spieler, der alle seine Karten loswird, gewinnt das Spiel.
 
-**Aber** es gibt ein paar Wendungen: **Spezialkarten**. Diese Karten können das Spiel auf verschiedene Weise verändern.
+**Aber** es gibt ein paar Überraschungen: **Spezialkarten**. Diese Karten können das Spiel auf verschiedene Weise verändern.
 
 ## Spezialkarten
 
@@ -24,7 +24,7 @@ Das Spielen dieser Karte kehrt die aktuelle Spielrichtung um. Anstatt des Spiele
 
 ### Zieh 2
 
-Das Spielen dieser Karte lässt den nächsten Spieler zwei Karten ziehen. Es gibt keine Möglichkeit, die Strafe zu umgehen, du musst diese Karten ziehen, was unvermeidlich ist.
+Das Spielen dieser Karte lässt den nächsten Spieler zwei Karten ziehen. Es gibt keine Möglichkeit, die Strafe zu umgehen, du musst diese Karten ziehen.
 
 ### Farbwahl
 
