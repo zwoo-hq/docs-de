@@ -8,7 +8,7 @@ Du bist neu im Spiel? - Schau dir [die Grundlagen](./basics.md) an!
 
 Schau dir [Spezialregeln](./specials.md) für alle Regeln an.
 
-Du fragst dich, wie du die Regeln deines Spiels konfigurieren kannst? - Schau dir [Regeln konfigurieren](./configuring-rules.md), [Stapelanpassungen](./pile.md) oder [Spielanpassungen](./lobby.md) an!
+Du fragst dich, wie du die Regeln deines Spiels konfigurieren kannst? - Schau dir [Regeln konfigurieren](./configuring-rules.md), [Kartenstapel anpassen](./pile.md) oder [Spielanpassungen](./lobby.md) an!
 
 ## Referenz
 
