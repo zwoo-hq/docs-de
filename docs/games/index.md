@@ -14,7 +14,7 @@ ZWOO unterstützt derzeit nur den Standard-Spielmodus. Aber wir arbeiten ständi
 
 ## Spiele spielen
 
-Unabhängig von der Umgebung, in der du spielst, ist die Art und Weise, wie Spiele gespielt werden, immer gleich. Du kannst entweder [dein eigenes Spiel erstellen](#todo) oder [einem bestehenden Spiel beitreten](#todo).
+Unabhängig von der Umgebung, in der du spielst, ist die Art und Weise, wie Spiele gespielt werden, immer gleich. Du kannst entweder [dein eigenes Spiel erstellen](https://zwoo.igd20.de/create-game) oder [einem bestehenden Spiel beitreten](https://zwoo.igd20.de/available-games).
 
 ## Rollen
 

@@ -7,11 +7,11 @@ Innerhalb der [Spieleinstellungen](https://zwoo.igd20.de/settings/game) gibt es 
 
 ### Kartenthema
 
-Durch Klicken auf die Schaltfläche "Thema auswählen" öffnet sich die [Themen-Galerie](#todo). Hier können Sie zwischen verschiedenen Kartenthemen wählen. Das ausgewählte Thema wird auf alle Spiele angewendet, die Sie spielen.
+Durch Klicken auf die Schaltfläche "Thema auswählen" öffnet sich die [Themen-Galerie](https://zwoo.igd20.de/themes/gallery). Hier können Sie zwischen verschiedenen Kartenthemen wählen. Das ausgewählte Thema wird auf alle Spiele angewendet, die Sie spielen.
 
 ### Kartendetails vor dem Spielen anzeigen
 
-Wenn diese Option aktiviert ist, sehen Sie ein Overlay, das die Karte anzeigt, die Sie spielen möchten, bevor sie tatsächlich gespielt wird. In dieser Vorschau können Sie die Karte, die Sie spielen möchten, noch ändern. Dies ist besonders nützlich, wenn Sie viele Karten in Ihrem Deck haben oder auf einem kleinen Gerät spielen. Es ist auch möglich, diese Option aus dem [In-Game-Menü](#todo) zu aktivieren.
+Wenn diese Option aktiviert ist, sehen Sie ein Overlay, das die Karte anzeigt, die Sie spielen möchten, bevor sie tatsächlich gespielt wird. In dieser Vorschau können Sie die Karte, die Sie spielen möchten, noch ändern. Dies ist besonders nützlich, wenn Sie viele Karten in Ihrem Deck haben oder auf einem kleinen Gerät spielen. Es ist auch möglich, diese Option aus dem In-Game-Menü zu aktivieren.
 
 ::: info Info
 Diese Option ist auf mobilen Geräten standardmäßig aktiviert.
@@ -21,7 +21,7 @@ Sie wird auch aktiviert, wenn die Anzahl der Karten in Ihrem Deck eine bestimmte
 
 ### Karten im Deck sortieren
 
-Wenn diese Option aktiviert ist, werden die Karten in Ihrem Deck nach Farbe und dann nach Typ sortiert. Dies kann es einfacher machen, die Karte zu finden, die Sie suchen. Es ist auch möglich, diese Option aus dem [In-Game-Menü](#todo) zu aktivieren.
+Wenn diese Option aktiviert ist, werden die Karten in Ihrem Deck nach Farbe und dann nach Typ sortiert. Dies kann es einfacher machen, die Karte zu finden, die Sie suchen. Es ist auch möglich, diese Option aus dem In-Game-Menü zu aktivieren.
 
 ### Feedback-Nachrichten im Chat
 
