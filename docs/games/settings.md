@@ -1,36 +1,36 @@
-# Settings
+# Einstellungen
 
-Inside the [game settings](https://zwoo.igd20.de/settings/game) there are multiple options that can be configured to customize your game experience
+Innerhalb der [Spieleinstellungen](https://zwoo.igd20.de/settings/game) gibt es mehrere Optionen, die konfiguriert werden können, um Ihr Spielerlebnis anzupassen.
 
 ![alt](../assets/games/settings/settings_dark.png){.dark-only}
 ![alt](../assets/games/settings/settings_light.png){.light-only}
 
-### Card theme
+### Kartenthema
 
-By clicking on the "Select theme" button, the [theme gallery](#todo) opens. Here you can choose between different card themes. The selected theme will be applied to all games you play.
+Durch Klicken auf die Schaltfläche "Thema auswählen" öffnet sich die [Themen-Galerie](https://zwoo.igd20.de/themes/gallery). Hier können Sie zwischen verschiedenen Kartenthemen wählen. Das ausgewählte Thema wird auf alle Spiele angewendet, die Sie spielen.
 
-### Show card detail before playing
+### Kartendetails vor dem Spielen anzeigen
 
-When this option is enabled, you will see an overlay displaying the card you wanted to play before it is actually played. Inside this preview, you can still change the card you want to play. This is especially useful when you have many cards in your deck or on a small device. It's also possibly to toggle this option from the [in game menu](#todo).
+Wenn diese Option aktiviert ist, sehen Sie ein Overlay, das die Karte anzeigt, die Sie spielen möchten, bevor sie tatsächlich gespielt wird. In dieser Vorschau können Sie die Karte, die Sie spielen möchten, noch ändern. Dies ist besonders nützlich, wenn Sie viele Karten in Ihrem Deck haben oder auf einem kleinen Gerät spielen. Es ist auch möglich, diese Option aus dem In-Game-Menü zu aktivieren.
 
 ::: info Info
-This option is enabled by default on mobile devices.
+Diese Option ist auf mobilen Geräten standardmäßig aktiviert.
 
-It will also be enabled if the amount of cards in your deck surpasses a certain threshold.
+Sie wird auch aktiviert, wenn die Anzahl der Karten in Ihrem Deck eine bestimmte Schwelle überschreitet.
 :::
 
-### Sort cards in deck
+### Karten im Deck sortieren
 
-When enabled, the cards in your deck will be sorted by color and then by type. This can make it easier to find the card you are looking for. It's also possibly to toggle this option from the [in game menu](#todo).
+Wenn diese Option aktiviert ist, werden die Karten in Ihrem Deck nach Farbe und dann nach Typ sortiert. Dies kann es einfacher machen, die Karte zu finden, die Sie suchen. Es ist auch möglich, diese Option aus dem In-Game-Menü zu aktivieren.
 
-### Feedback messages in chat
+### Feedback-Nachrichten im Chat
 
-Available options: `All`, `Only mine` or `None`.
+Verfügbare Optionen: `Alle`, `Nur meine` oder `Keine`.
 
-When this option is set to `All` or `Only mine`, you will receive feedback messages in the chat. Feedback messages are events that happened in the game, like the direction was reversed, a player was skipped or had to draw cards. When set to `All`, you will see all feedback messages. When set to `Only mine`, you will only see feedback messages that are related to you. Settings this option to `None` will hide all feedback messages in the chat.
+Wenn diese Option auf `Alle` oder `Nur meine` gesetzt ist, erhalten Sie Feedback-Nachrichten im Chat. Feedback-Nachrichten sind Ereignisse, die im Spiel passiert sind, wie z.B. die Richtung wurde umgekehrt, ein Spieler wurde übersprungen oder musste Karten ziehen. Wenn die Option auf `Alle` gesetzt ist, sehen Sie alle Feedback-Nachrichten. Wenn die Option auf `Nur meine` gesetzt ist, sehen Sie nur Feedback-Nachrichten, die sich auf Sie beziehen. Wenn diese Option auf `Keine` gesetzt ist, werden alle Feedback-Nachrichten im Chat ausgeblendet.
 
-### Feedback notifications
+### Feedback-Benachrichtigungen
 
-Available options: `All`, `Only mine` or `None`.
+Verfügbare Optionen: `Alle`, `Nur meine` oder `Keine`.
 
-Feedback notification work exactly like [feedback messages in chat](#feedback-messages-in-chat), but instead of showing them in the chat, you will receive a notification at the top of the screen.
+Feedback-Benachrichtigungen funktionieren genau wie [Feedback-Nachrichten im Chat](#feedback-nachrichten-im-chat), aber anstatt sie im Chat anzuzeigen, erhalten Sie eine Benachrichtigung oben auf dem Bildschirm.

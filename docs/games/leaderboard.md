@@ -1,5 +1,5 @@
-# Leaderboard
+# Rangliste
 
-The leaderboard is a global real time ranking of the players with the most wins. You can access the [leaderboard](https://zwoo.igd20.de/leaderboard) by clicking the "Leaderboard" button on the homepage.
+Die Rangliste ist ein globales Echtzeit-Ranking der Spieler mit den meisten Siegen. Sie können auf die [Rangliste](https://zwoo.igd20.de/leaderboard) zugreifen, indem Sie auf der Startseite auf die Schaltfläche "Leaderboard" klicken.
 
-> **Note**: Only wins of online games are counted for the leaderboard. Otherwise a note is displayed in the lobby.
+> **Hinweis**: Nur Siege in Online-Spielen werden für die Rangliste gezählt. Andernfalls wird eine Notiz in der Lobby angezeigt.

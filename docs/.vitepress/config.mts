@@ -52,26 +52,26 @@ export default defineConfig({
         link: "/faq",
       },
       {
-        text: "Games",
+        text: "Spiele",
         link: "/games/",
       },
       {
-        text: "Rules",
+        text: "Regeln",
         link: "/rules/",
       },
       createCommonNav("/docs/"),
     ],
     sidebar: [
       {
-        text: "Overview",
+        text: "Übersicht",
         link: "/overview",
       },
       {
-        text: "Getting started",
+        text: "Erste Schritte",
         link: "/getting-started",
       },
       {
-        text: "Account",
+        text: "Konto",
         link: "/account",
       },
       {
@@ -79,35 +79,35 @@ export default defineConfig({
         link: "/faq",
       },
       {
-        text: "Rules",
+        text: "Regeln",
         collapsed: true,
         link: "/rules/",
         items: [
-          { text: "Reference", link: "/rules/#reference" },
-          { text: "Basics", link: "/rules/basics" },
-          { text: "Special rules", link: "/rules/specials" },
-          { text: "Configuring rules", link: "/rules/configuring-rules" },
-          { text: "Pile customizations", link: "/rules/pile" },
-          { text: "Lobby customizations", link: "/rules/lobby" },
-          { text: "Game modes", link: "/rules/game-modes" },
+          { text: "Referenz", link: "/rules/#reference" },
+          { text: "Grundlagen", link: "/rules/basics" },
+          { text: "Spezialregeln", link: "/rules/specials" },
+          { text: "Regeln konfigurieren", link: "/rules/configuring-rules" },
+          { text: "Kartenstapel anpassen", link: "/rules/pile" },
+          { text: "Lobby anpassen", link: "/rules/lobby" },
+          { text: "Spielmodi", link: "/rules/game-modes" },
         ],
       },
       {
-        text: "Games",
+        text: "Spiele",
         collapsed: true,
         link: "/games/",
         items: [
-          { text: "Online Games", link: "/games/online-games" },
+          { text: "Online-Spiele", link: "/games/online-games" },
           { text: "Bots", link: "/games/bots" },
-          { text: "Leaderboard", link: "/games/leaderboard" },
-          { text: "Profiles", link: "/games/game-profiles" },
-          { text: "Settings", link: "/games/settings" },
-          { text: "Offline Games", link: "/games/offline-games" },
-          { text: "Local Games", link: "/games/local-games" },
+          { text: "Rangliste", link: "/games/leaderboard" },
+          { text: "Profile", link: "/games/game-profiles" },
+          { text: "Einstellungen", link: "/games/settings" },
+          { text: "Offline-Spiele", link: "/games/offline-games" },
+          { text: "Lokale Spiele", link: "/games/local-games" },
         ],
       },
       {
-        text: "Guides",
+        text: "Anleitungen",
         collapsed: true,
         items: [
           {
@@ -121,11 +121,11 @@ export default defineConfig({
         link: ZWOO_URL,
       },
       {
-        text: "Developers",
+        text: "Entwickler",
         link: ZWOO_DOCS_URL + "dev/",
       },
       {
-        text: "API Reference",
+        text: "API-Referenz",
         link: ZWOO_DOCS_URL + "api/",
       },
     ],

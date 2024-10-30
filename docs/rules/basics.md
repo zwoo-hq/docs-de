@@ -1,42 +1,41 @@
-# The basics
+# Die Grundlagen
 
-## The game
+## Das Spiel
 
-## Base rules
+## Grundregeln
 
-[\[back to the reference\]](./index.md#basics)
+[\[zurück zur Referenz\]](./index.md#basics)
 
-At the core of the game, you have to get rid of all your cards. You can do this by playing cards on the discard pile. The card you play must either have the same color or the same number as the card on the discard pile. If you can't play a card, you have to draw a card from the deck. The first player to get rid of all their cards wins the game.
+Im Kern des Spiels geht es darum, alle deine Karten loszuwerden. Du kannst dies tun, indem du Karten auf den Ablagestapel legst. Die Karte, die du spielst, muss entweder die gleiche Farbe oder die gleiche Zahl wie die Karte auf dem Ablagestapel haben. Wenn du keine Karte spielen kannst, musst du eine Karte vom Stapel ziehen. Der erste Spieler, der alle seine Karten loswird, gewinnt das Spiel.
 
-**But** there are a few twists: **special cards**. These cards can change the game in a variety of ways.
+**Aber** es gibt ein paar Überraschungen: **Spezialkarten**. Diese Karten können das Spiel auf verschiedene Weise verändern.
 
-## Special Cards
+## Spezialkarten
 
-[\[back to the reference\]](./index.md#basics)
+[\[zurück zur Referenz\]](./index.md#basics)
 
-### Skip
+### Aussetzen
 
-Playing this card will skip the next player's turn. The next player won't be able to place or draw a card. If there is only one opponent left (the last two players remaining), it is your turn again, and you can place cards back to back. 
+Das Spielen dieser Karte überspringt den Zug des nächsten Spielers. Der nächste Spieler kann keine Karte legen oder ziehen. Wenn nur noch ein Gegner übrig ist (die letzten beiden verbleibenden Spieler), bist du wieder an der Reihe und kannst Karten hintereinander legen.
 
-### Reverse
+### Richtungswechsel
 
-Playing this card will reverse the current direction of the game. Instead of the player after you, the player before you will be able to play again. If there is only one opponent left (the last two players remaining), this card will have no notable effect on the game.
+Das Spielen dieser Karte kehrt die aktuelle Spielrichtung um. Anstatt des Spielers nach dir, kann der Spieler vor dir wieder spielen. Wenn nur noch ein Gegner übrig ist (die letzten beiden verbleibenden Spieler), hat diese Karte keine bemerkenswerte Auswirkung auf das Spiel.
 
-### Draw 2
+### Zieh 2
 
-Playing this card will make the next player draw two cards. There is no way of circumventing the punishment, you have to draw those cards, which is inevitable.
+Das Spielen dieser Karte lässt den nächsten Spieler zwei Karten ziehen. Es gibt keine Möglichkeit, die Strafe zu umgehen, du musst diese Karten ziehen.
 
-### Wild
+### Farbwahl
 
-The wild card is a very powerful card. Once played, you can select the color the next player has to place. You can use it to your advantage or to your opponent's disadvantage.
+Die Farbwahlkarte ist eine sehr mächtige Karte. Sobald sie gespielt wird, kannst du die Farbe auswählen, die der nächste Spieler legen muss. Du kannst sie zu deinem Vorteil oder zum Nachteil deines Gegners nutzen.
 
+### Farbwahl +4
 
-### Wild Draw 4
+Diese Karte ist eine Kombination aus der "Farbwahl"- und der "Zieh 2"-Karte. Sobald sie gespielt wird, kannst du die Farbe auswählen, die der nächste Spieler legen muss, und der nächste Spieler muss 4 Karten ziehen.
 
-This card is a combination of the "wild" and "draw 2" cards. Once played, you can select the color the next player has to place, and the next player will have to draw 4 cards.
+## Ziel des Spiels
 
-## Objective of the game
+[\[zurück zur Referenz\]](./index.md#basics)
 
-[\[back to the reference\]](./index.md#basics)
-
-The main objective of the game varies depending on the selected game mode. In the default mode, the goal is to be the first player to play all their cards, or, in other words, to be the first with an empty hand.
+Das Hauptziel des Spiels variiert je nach ausgewähltem Spielmodus. Im Standardmodus ist das Ziel, der erste Spieler zu sein, der alle seine Karten spielt, oder mit anderen Worten, der erste zu sein, der keine Karten mehr auf der Hand hat.

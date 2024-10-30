@@ -1,74 +1,74 @@
-# Games
+# Spiele
 
-ZWOO can be played in a variety of ways. The most popular one are online games, where you can play with your friends or other players from all over the world. But you can also play ZWOO in a local network on LAN parties or even offline against bots.
+ZWOO kann auf verschiedene Arten gespielt werden. Die beliebteste Art sind Online-Spiele, bei denen du mit deinen Freunden oder anderen Spielern aus der ganzen Welt spielen kannst. Aber du kannst ZWOO auch in einem lokalen Netzwerk auf LAN-Partys oder sogar offline gegen Bots spielen.
 
-- [Online games](./online-games)
-- [Offline games](./offline-games)
-- [Local games](./local-games)
+- [Online-Spiele](./online-games)
+- [Offline-Spiele](./offline-games)
+- [Lokale Spiele](./local-games)
 
-For online games, there's a global [leaderboard](./leaderboard), where you can compare your skills with other players. 
+Für Online-Spiele gibt es eine globale [Rangliste](./leaderboard), in der du deine Fähigkeiten mit anderen Spielern vergleichen kannst.
 
-## Game modes
+## Spielmodi
 
-ZWOO currently supports only the standard game mode. But we are constantly working on new features and experimental game modes. If you have an idea for a new game mode, feel free to contact us.
+ZWOO unterstützt derzeit nur den Standard-Spielmodus. Aber wir arbeiten ständig an neuen Funktionen und experimentellen Spielmodi. Wenn du eine Idee für einen neuen Spielmodus hast, kannst du uns gerne kontaktieren.
 
-## Playing games
+## Spiele spielen
 
-Independent of the environment you are playing in, the way games are played is always the same. You can get started by either [creating your own game](#todo) or [joining an existing game](#todo).
+Unabhängig von der Umgebung, in der du spielst, ist die Art und Weise, wie Spiele gespielt werden, immer gleich. Du kannst entweder [dein eigenes Spiel erstellen](https://zwoo.igd20.de/create-game) oder [einem bestehenden Spiel beitreten](https://zwoo.igd20.de/available-games).
 
-## Roles
+## Rollen
 
-In a game, there are 3 different roles one can have:
+In einem Spiel gibt es 3 verschiedene Rollen, die man haben kann:
 
-- **Host**: Usually  the host is the player who created the game. There is at most one host per game, and he is the leader of the game and can manage players, configure rules or start the game. The host is able to kick players from the game or to promote another player to host, which will transfer the host role to the promoted player.
-- **Player**: A player is a normal participant of the game. He can play the game and interact with the host and other players. A player can leave the game or switch to spectator mode as long the game is not started.
-- **Spectator**: A spectator is a player who is not actively participating in the game. He can watch the game and chat with other spectators or players. As long the game is not started, a spectator can switch to player mode at any time.
+- **Host**: Normalerweise ist der Host der Spieler, der das Spiel erstellt hat. Es gibt höchstens einen Host pro Spiel, und er ist der Leiter des Spiels und kann Spieler verwalten, Regeln konfigurieren oder das Spiel starten. Der Host kann Spieler aus dem Spiel werfen oder einen anderen Spieler zum Host befördern, wodurch die Host-Rolle auf den beförderten Spieler übertragen wird.
+- **Spieler**: Ein Spieler ist ein normaler Teilnehmer des Spiels. Er kann das Spiel spielen und mit dem Host und anderen Spielern interagieren. Ein Spieler kann das Spiel verlassen oder in den Zuschauermodus wechseln, solange das Spiel nicht gestartet ist.
+- **Zuschauer**: Ein Zuschauer ist ein Spieler, der nicht aktiv am Spiel teilnimmt. Er kann das Spiel beobachten und mit anderen Zuschauern oder Spielern chatten. Solange das Spiel nicht gestartet ist, kann ein Zuschauer jederzeit in den Spielermodus wechseln.
 
-## The lobby
+## Die Lobby
 
-Once you created or joined a game, you will start off in the lobby. The lobby consists of multiple widgets, of which, depending on your role or environment, not always all are visible.
+Sobald du ein Spiel erstellt oder einem Spiel beigetreten bist, startest du in der Lobby. Die Lobby besteht aus mehreren Widgets, von denen, je nach deiner Rolle oder Umgebung, nicht immer alle sichtbar sind.
 
-### Players
+### Spieler
 
-The "Players"-widget contains a list of all participating players in the game. It shows the player's name and his role. The host is marked with a crown icon. When the game contains bots, they are also shown in the players list and are marked with a bot icon.
+Das "Spieler"-Widget enthält eine Liste aller teilnehmenden Spieler im Spiel. Es zeigt den Namen des Spielers und seine Rolle an. Der Host ist mit einem Kronensymbol gekennzeichnet. Wenn das Spiel Bots enthält, werden diese ebenfalls in der Spielerliste angezeigt und sind mit einem Bot-Symbol gekennzeichnet.
 
-In the "Players"-widget, the host can manage the players. He can kick players from the game, promote them to host, or switch them to spectator mode.
+Im "Spieler"-Widget kann der Host die Spieler verwalten. Er kann Spieler aus dem Spiel werfen, sie zum Host befördern oder in den Zuschauermodus wechseln.
 
-### Spectators
+### Zuschauer
 
-The "Spectators"-widget contains a list of all spectators in the game. It shows the spectator's name. 
+Das "Zuschauer"-Widget enthält eine Liste aller Zuschauer im Spiel. Es zeigt den Namen des Zuschauers an.
 
-Here, the host is able to kick spectators from the game.
+Hier kann der Host Zuschauer aus dem Spiel werfen.
 
 ### Chat
 
-The chat widget is a simple chat where all players and spectators can chat with each other. The chat is used to communicate with other players, to discuss game strategies, or to just have fun.
+Das Chat-Widget ist ein einfacher Chat, in dem alle Spieler und Zuschauer miteinander chatten können. Der Chat wird verwendet, um mit anderen Spielern zu kommunizieren, Spielstrategien zu besprechen oder einfach nur Spaß zu haben.
 
-[If configured](./settings.md#feedback-messages-in-chat), the chat can also contain events that happened in the game.
+[Wenn konfiguriert](./settings.md#feedback-messages-in-chat), kann der Chat auch Ereignisse enthalten, die im Spiel passiert sind.
 
-### Rules
+### Regeln
 
-The "Rules"-widget contains the game rules. It shows the rules that are currently configured for the game. While spectators or players can only view the rules, the host can also change them.
+Das "Regeln"-Widget enthält die Spielregeln. Es zeigt die Regeln an, die derzeit für das Spiel konfiguriert sind. Während Zuschauer oder Spieler die Regeln nur anzeigen können, kann der Host sie auch ändern.
 
-Instead of configuring each rule manually, the host can also choose from a list of predefined or self created [game profiles](./game-profiles.md).
+Anstatt jede Regel manuell zu konfigurieren, kann der Host auch aus einer Liste vordefinierter oder selbst erstellter [Spielprofile](./game-profiles.md) wählen.
 
 ### Bots
 
-The "Bots"-widget contains a list of all bots that are currently in the game.  The host can add or remove bots from the game and configure their difficulty level.
+Das "Bots"-Widget enthält eine Liste aller Bots, die sich derzeit im Spiel befinden. Der Host kann Bots zum Spiel hinzufügen oder entfernen und deren Schwierigkeitsgrad konfigurieren.
 
-## While playing
+## Während des Spiels
 
-Once the host starts the game, the game will begin. Inside the game, you can see your opponents on the top and your deck on the bottom. In the middle of the screen is the top card of the discard pile. On the left side of the screen is the draw pile. The opponents are displayed with players names and their current card amount. The currently active player and your self are highlighted.
+Sobald der Host das Spiel startet, beginnt das Spiel. Im Spiel kannst du deine Gegner oben und dein Deck unten sehen. In der Mitte des Bildschirms befindet sich die oberste Karte des Ablagestapels. Auf der linken Seite des Bildschirms befindet sich der Nachziehstapel. Die Gegner werden mit den Namen der Spieler und ihrer aktuellen Kartenanzahl angezeigt. Der derzeit aktive Spieler und du selbst sind hervorgehoben.
 
-## Game summary
+## Spielzusammenfassung
 
-After a game was finished, a summary will be shown. This includes a leaderboard with the players and their scores.
+Nach dem Ende eines Spiels wird eine Zusammenfassung angezeigt. Diese enthält eine Rangliste mit den Spielern und ihren Punktzahlen.
 
-After the game ended, each player can decide whether they want to play another game or leave the game.
+Nach dem Ende des Spiels kann jeder Spieler entscheiden, ob er ein weiteres Spiel spielen oder das Spiel verlassen möchte.
 
-## More information
+## Weitere Informationen
 
-- [Leaderboard](./leaderboard.md)
+- [Rangliste](./leaderboard.md)
 - [Bots](./bots.md)
-- [Game profiles](./game-profiles.md)
-- [Settings](./settings.md)
+- [Spielprofile](./game-profiles.md)
+- [Einstellungen](./settings.md)

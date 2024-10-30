@@ -1,10 +1,10 @@
-# Getting started
+# Erste Schritte
 
-Welcome to ZWOO! To get started playing games, just follow these simple steps:
+Willkommen bei ZWOO! Um mit dem Spielen zu beginnen, folge einfach diesen einfachen Schritten:
 
-1. **Create an account**: visit [zwoo.igd20.de/create-account](https://zwoo.igd20.de/create-account) and create an account.
-2. **Verify your account**: Next, you need to verify your account. We will email you the verification link for your account.
-3. **Log in**: once you have verified your account, you can log in at [zwoo.igd20.de/login](https://zwoo.igd20.de/login).
-4. **Start playing!**: Gather your friends and start playing games!
+1. **Konto erstellen**: [zwoo.igd20.de/create-account](https://zwoo.igd20.de/create-account) besuchen und ein Konto erstellen.
+2. **Konto verifizieren**: Als nächstes muss dein Konto verifiziert werden. Wir senden dir eine E-Mail mit dem Bestätigungslink für das Konto.
+3. **Anmelden**: Sobald dein Konto verifiziert wurde, kannst du dich unter [zwoo.igd20.de/login](https://zwoo.igd20.de/login) anmelden.
+4. **Spielen beginnen!**: Versammle deine Freunde und beginne zu spielen!
 
-While you're waiting, you can take a look at the [game rules](./rules/index) and how to [customize your gaming experience](./games/) 
+Während du wartest, kannst du dir die [Spielregeln](./rules/index) und die Möglichkeiten zur [Anpassung deines Spielerlebnisses](./games/) ansehen.
