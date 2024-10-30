@@ -14,7 +14,7 @@ ZWOO currently supports only the standard game mode. But we are constantly worki
 
 ## Playing games
 
-Independent of the environment you are playing in, the way games are played is always the same. You can get started by either [creating your own game](#todo) or [joining an existing game](#todo).
+Independent of the environment you are playing in, the way games are played is always the same. You can get started by either [creating your own game](https://zwoo.igd20.de/create-game) or [joining an existing game](https://zwoo.igd20.de/available-games).
 
 ## Roles
 

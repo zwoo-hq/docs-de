@@ -36,8 +36,8 @@ features:
     linkText: Learn the rules
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path d="M19 3v4m0 14V11m-7-8v12m0 6v-2M5 3v2m0 16V9"/><circle cx="19" cy="9" r="2" transform="rotate(90 19 9)"/><circle cx="12" cy="17" r="2" transform="rotate(90 12 17)"/><circle cx="5" cy="7" r="2" transform="rotate(90 5 7)"/></g></svg>
     # akar-icons:settings-vertical
-  - title: Custom Cards
-    details: Ready for custom cards with unique abilities and twerks?
+  - title: Special Cards
+    details: Ready for special cards with unique abilities and twerks?
     link: /rules/
     linkText: Learn more
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M12.5 4v8a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 12V4A1.5 1.5 0 0 1 5 2.5h6A1.5 1.5 0 0 1 12.5 4M11 1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3zM5 8.25v-.5A5.56 5.56 0 0 0 7.75 4h.5A5.56 5.56 0 0 0 11 7.75v.5A5.56 5.56 0 0 0 8.25 12h-.5A5.56 5.56 0 0 0 5 8.25" clip-rule="evenodd"/></svg>
