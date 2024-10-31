@@ -1,5 +1,5 @@
 import Theme from "@zwoo/theme-docs";
 
-import "./custom.css";
+import "../../../custom.css";
 
 export default Theme;
