@@ -7,7 +7,7 @@ import {
   themeConfig,
   ZWOO_DOCS_URL,
   ZWOO_URL,
-} from "../../commonConfig.mts";
+} from "../../common/config.mts";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

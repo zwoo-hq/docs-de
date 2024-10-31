@@ -66,6 +66,20 @@ features:
 }
 
 .image-bg {
-  border-radius: 30px !important;
+  border-radius: 50px !important;
+  rotate: 0deg;
+  transform-origin: 0 0;
+  animation: rotate-gradient linear 60s infinite;
+}
+
+@keyframes rotate-gradient {
+  19% { rotate: 120deg; }
+  27% { rotate: 70deg; }
+  48% { rotate: 210deg; }
+  58% { rotate: 150deg; }
+  61% { rotate: 170deg; }
+  73% { rotate: 90deg; }
+  79% { rotate: 130deg; }
+  100% { rotate: 0deg; }
 }
 </style>

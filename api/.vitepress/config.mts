@@ -5,7 +5,7 @@ import {
   createLocales,
   socialLinks,
   themeConfig,
-} from "../../commonConfig.mts";
+} from "../../common/config.mts";
 
 const concepts = [
   {
