@@ -345,7 +345,7 @@ The `Host` wants to give his host role to another `Player`.
 }
 ```
 
-#### *113* YouAreHostNow`Notification`
+#### *113* YouAreHost`Notification`
 
 Notifies a `Player` that he is now the host of the game.
 
@@ -530,8 +530,9 @@ Notifies all clients that a new `Bot` joined the game.
 {
     "id": <bot game id: number>, [v4.0.0]
     "username": <bot username: string>,
-    "wins": <bot wins: number>, [v4.0.0]
+    "score": <bot score: number>, [v5.0.0]
     // "id": <player public id: string>, [deprecated: v4.0.0]
+    // "wins": <bot wins: number>, [v4.0.0. deprecated]
 }
 ```
 
@@ -599,11 +600,12 @@ Sends the [`Caller[#235]`](#235-deletebotevent-v200) the configuration of all cu
       {
         "id": <bot game id: number>, [v4.0.0]
         "username": <bot username: string>,
-        "wins": <bot wins: number> [v4.0.0]
         "config": {
           "type": <number>
-        }
+        },
+        "score": <bot score: number>, [v5.0.0]
         // "id": <bot public id: string> [deprecated v4.0.0]
+        // "wins": <bot wins: number> [v4.0.0, deprecated v5.0.0]
       }
     ]
 }
@@ -677,7 +679,7 @@ Send by a `Player` when he wants to place a card.
 
 ```json
 {
-  <card: Card>, [v5.0.0]
+  "card": <placed card: Card>, [v5.0.0]
   // "type": <card type: number>, [deprecated v5.0.0]
   // "symbol": <card symbol: number> [deprecated v5.0.0]
 }
@@ -745,7 +747,7 @@ Notifies all `Players` and `Spectators` whenever the game state updates.
         "args": <the context, see UIFeedbackArguments>
       }
     ], [v4.1.0]
-    "pileTop": [<cards: Card[]>], [v5.0.0]
+    "pileTop": <card: Card>, [v5.0.0]
     // "activePlayerCardAmount": <amount: number> [deprecated v3.0.0]
     // "lastPlayer": <player public id: string> [deprecated v3.0.0]
     // "lastPlayerCardAmount": <amount: number> [deprecated v3.0.0]
@@ -831,7 +833,7 @@ Sends the [`Caller[#314]`](#314-getpiletopevent) the current top most card.
 
 ```json
 {
-    <card: Card> [v5.0.0]
+    "card": <card: Card> [v5.0.0]
     // "type": <card type: number> [deprecated v5.0.0],
     // "symbol": <card symbol: number> [deprecated v5.0.0]
 }
@@ -1108,5 +1110,5 @@ Removed
 
 Modified:
 
-* renamed `wins` property to `score` on codes 100; 109; 116
+* renamed `wins` property to `score` on codes 100; 109, 116, 231, 237
 * use `Card` type in 300, 304, 306, 307, 308, 311, 315
