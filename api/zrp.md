@@ -905,12 +905,24 @@ Sent when no matching error is available.
 }
 ```
 
+#### *401* MessageToLongError`Notification`
+
+Sent when the incoming message was too long
+
+```json
+{
+    "code": <error code: number>,
+    "message": <message: string>
+}
+```
+
 #### *420* AccessDeniedError`Notification`
 
 Notifies a `Player` that he cant perform this operation (eg. a player sends `Host` scoped `Events`)
 
 ```json
 {
+    "code": <error code: number>,
     "message": <message: string>
 }
 ```
