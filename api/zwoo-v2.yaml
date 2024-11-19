@@ -21,7 +21,7 @@ info:
   termsOfService: https://zwoo.igd20.de/
   contact:
     email: contact@igd20.de
-  version: 2.1.0
+  version: 2.2.0
 
 servers:
   - url: https://zwoo.igd20.de/
@@ -84,7 +84,7 @@ paths:
         - master
         - local-server
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: return the current users information
       description: get the session of the current user
       operationId: getUser
@@ -160,7 +160,7 @@ paths:
         - master
         - local-server
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: logout of your account
       description: destroy the current authentication session
       operationId: logout
@@ -210,7 +210,7 @@ paths:
         - user
         - master
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: delete the users account
       description: delete the current users account
       operationId: deleteAccount
@@ -300,7 +300,7 @@ paths:
         - user
         - master
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: return the users synced settings
       description: send the current users synced settings
       operationId: getUserSettings
@@ -320,7 +320,7 @@ paths:
         - user
         - master
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: update the users synced settings
       operationId: setUserSettings
       requestBody:
@@ -343,7 +343,7 @@ paths:
         - user
         - master
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: change the users password
       description: set a new password for a user account
       operationId: changePassword
@@ -444,7 +444,7 @@ paths:
   /leaderboard/self:
     get:
       security:
-        - cookie: []
+        - cookie: [ ]
       tags:
         - game
         - master
@@ -468,7 +468,7 @@ paths:
         - master
         - local-server
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: query games
       description: query the currently active games
       operationId: getGames
@@ -521,7 +521,7 @@ paths:
         - master
         - local-server
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: create a game
       description: create a game
       operationId: createGame
@@ -552,7 +552,7 @@ paths:
         - master
         - local-server
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: join a game
       description: join a game
       operationId: joinGame
@@ -590,7 +590,7 @@ paths:
         - master
         - local-server
       security:
-        - cookie: []
+        - cookie: [ ]
       summary: get information on the selected game
       description: get the meta data of a currently active game
       operationId: getGame
@@ -626,7 +626,7 @@ paths:
         - local-server
         - game-server
       security:
-        - game-token: []
+        - game-token: [ ]
       summary: setup a websocket connection on a game
       description: connect via websocket to a game
       operationId: connectToGame
@@ -658,6 +658,122 @@ paths:
             application/problem+json:
               schema:
                 $ref: "#/components/schemas/Problem"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /game-profiles:
+    get:
+      tags:
+        - game
+        - master
+      security:
+        - cookie: [ ]
+      summary: get the game profiles for the current user
+      description: get the game profiles for the current user
+      operationId: getGameProfiles
+      responses:
+        "200":
+          description: successful game profiles response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GameProfiles"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+    post:
+      tags:
+        - game
+        - master
+      security:
+        - cookie: [ ]
+      summary: create a new game profile
+      description: create a new game profile
+      operationId: createGameProfile
+      requestBody:
+        description: information about the game profile to create
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateGameProfile"
+        required: true
+      responses:
+        "201":
+          description: the game profile was successfully created
+        "400":
+          description: cant create the game profile
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+  /game-profiles/{id}:
+    put:
+      tags:
+        - game
+        - master
+      security:
+        - cookie: [ ]
+      summary: update the game profile
+      description: update the game profile
+      operationId: updateGameProfile
+      parameters:
+        - name: id
+          description: id of the game profile
+          in: path
+          schema:
+            type: string
+          required: true
+      requestBody:
+        description: the new game profile data
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateGameProfile"
+          required: true
+      responses:
+        "200":
+          description: the game profile was successfully updated
+        "400":
+          description: cant update the game profile
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
+        "500":
+          $ref: "#/components/responses/InternalServerErrorResponse"
+    delete:
+      tags:
+        - game
+        - master
+      security:
+        - cookie: [ ]
+      summary: delete the game profile
+      description: delete the game profile
+      operationId: deleteGameProfile
+      parameters:
+        - name: id
+          description: id of the game profile
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: the game profile was successfully deleted
+        "400":
+          description: cant delete the game profile
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/Problem"
+        "401":
+          $ref: "#/components/responses/UnauthorizedResponse"
         "500":
           $ref: "#/components/responses/InternalServerErrorResponse"
 
@@ -791,7 +907,7 @@ components:
         zrpVersion:
           type: string
         mode:
-          enum: [online, local]
+          enum: [ online, local ]
       required:
         - version
         - zrpVersion
@@ -976,6 +1092,46 @@ components:
       required:
         - gameId
         - role
+    GameProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: int
+          enum: [ 1, 2 ]
+        settings:
+          type: object
+          additionalProperties:
+            type: integer
+      required:
+        - id
+        - name
+        - type
+        - settings
+    GameProfiles:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items:
+            $ref: "#/components/schemas/GameProfile"
+      required:
+        - profiles
+    CreateGameProfile:
+      type: object
+      properties:
+        name:
+          type: string
+        settings:
+          type: object
+          additionalProperties:
+            type: integer
+      required:
+        - name
+        - settings
     VersionHistory:
       type: object
       properties:
@@ -1006,7 +1162,7 @@ components:
         - site
     LanguageCode:
       type: string
-      enum: [de, en]
+      enum: [ de, en ]
 
   responses:
     UserNotFoundResponse:
