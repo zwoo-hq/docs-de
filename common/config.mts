@@ -25,6 +25,33 @@ export const createCommonHead = (): HeadConfig[] => [
   //   { property: "og:image", content: "https://zwoo.igd20.de/docs/" },
   // ],
   ["meta", { property: "og:url", content: ZWOO_DOCS_URL }],
+  // This intercepts all clicks and avoids the Vitepress router
+  // hijack when possible.
+  [
+    "script",
+    {},
+    `
+      // Add a listener that avoids the Vitepress Router if there is
+      // a link attribute
+      window.addEventListener(
+        'click',
+        (e) => {
+          const link = e.target.closest('a');
+          if (!link) {
+            return
+          }
+
+          if (link.getAttribute('hijack') == 'false') {
+            console.log('no hijack please')
+            e.stopImmediatePropagation();
+            window.location = link.getAttribute('href')
+            return true
+          }
+        },
+        { capture: true }
+      )
+      `,
+  ],
 ];
 
 export const createCommonNav = (
@@ -71,7 +98,7 @@ export const themeConfig: ThemeConfig = {
   i18nRouting: false,
   footer: {
     copyright:
-      "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt) | <a href='https://zwoo.igd20.de/imprint'>Imprint</a> | <a href='https://zwoo.igd20.de/privacy'>Privacy</a>",
+      "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt) | <a href='https://zwoo.igd20.de/imprint' hijack='false' >Imprint</a> | <a href='https://zwoo.igd20.de/privacy' hijack='false' >Privacy</a>",
     message: "Made with <3 by Fabian Kachlock and the zwoo team.",
   },
 };
