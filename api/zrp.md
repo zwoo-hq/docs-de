@@ -1,30 +1,39 @@
-# v4.3.0 - ZRP (Zwoo Request Protocol)
+# ZRP (Zwoo Request Protocol)
+
+The ZRP is used for Communication between the game server an a playing client. 
+
+Its a simple protocol on top of WebSockets using JSON as data format.
 
 ## Definitions:
 
-The ZRP is used for Communication between the Backend and Frontend
+* **`Server`**: the zwoo game server
+* **`Client`**: a player or spectator connected to the server
+* **`Player`**: all players of a game (bots act as normal players)
+* **`Host`**: a special type of `Player`, he can change settings and start the game
+* **`Spectator`**: watches the game but does not participate
+* **`Bot`**: special type of `Player`, its controlled by an algorithm. It can't attend states like Disconnected or Spectator.
 
-* Player: all players of a game (bots act as normal players)
-* Server: zwoo server
-* Host: host of the game (must be a player itself)
-* Spectator: watches the game but does not participate
-* Bot: special type of Player, its controlled by an algorithmn. It can't attend states like Disconnected or Spectator.
-* Players sent **`Events`** to the server
-* The server answers with **`Notifications`**
-* An object carrying information is called a **`Message`**
-* The game emits **`GameEvents`** which get translated into **`Notifications`**
-* All **`Events`** and **`Notifications`** are carried by **`Messages`**
-* **`GameEvents`** can trigger visual feedback to the user, known as **`UIFeedback`**
+* **`Message`**: a logical unit of communication between the `Client` and the `Server`, either a `Event` or `Notification`, can consist of multiple WebSocket frames
+* **`Event`**: a message sent from a `Player` or `Spectator` to the `Server`
+* **`Notification`**: a message sent from the `Server` to a `Player` or `Spectator`
 
-`Version: 4.3.0`
+* **`GameEvent`**: a domain specific event, like a player joined the game emitted by the `Server`. This will be translated into a ZRP `Notification` and sent to the `Client`.
+
+Current Version: `5.0.0`
 
 ## `Message` Structure
 
 ```json
-code,{<data>}
+code,<data>
 ```
 
-## Roles
+The Code is a number, used to identify the type of the message. The data is a JSON object, containing the actual payload of the message.
+
+## General Types
+
+### Roles
+
+Every client has a role, which defines what he can do in the game.
 
 ```csharp
 enum ZRPRole {
@@ -35,7 +44,9 @@ enum ZRPRole {
 }
 ```
 
-## Player State
+### Player State
+
+The connection state of a client. This applies to `Players` and `Spectators`, `Bots` are always connected.
 
 ```csharp
 enum ZRPPlayerState {
@@ -44,7 +55,63 @@ enum ZRPPlayerState {
 }
 ```
 
-## Decision Type
+### Card Color [v5.0.0]
+
+All possible card colors in the game.
+
+```csharp
+public enum CardColor
+{
+    None = 0,
+    Red = 1,
+    Yellow = 2,
+    Blue = 3,
+    Green = 4,
+    Black = 5
+}
+```
+
+### Card Type [v5.0.0]
+
+All possible card types in the game.
+
+```csharp
+public enum CardType
+{
+    None = 0,
+    Zero = 1,
+    One = 2,
+    Two = 3,
+    Three = 4,
+    Four = 5,
+    Five = 6,
+    Six = 7,
+    Seven = 8,
+    Eight = 9,
+    Nine = 10,
+    Skip = 11,
+    Reverse = 12,
+    DrawTwo = 13,
+    Wild = 14,
+    WildFour = 15
+}
+```
+
+### Card [v5.0.0]
+
+A card is a common object, used in multiple `Events` and `Notifications`.
+
+```json
+{
+  "color": <card color enum: number>,
+  "type": <card type enum: number>
+}
+```
+
+
+### Decision Type
+
+The type of a decision, which can be requested from a player.
 
 ```csharp
 enum DecisionType {
@@ -53,7 +120,9 @@ enum DecisionType {
 }
 ```
 
-## SettingsType
+### Settings Type
+
+The data type of a setting.
 
 ```csharp
 enum SettingType {
@@ -63,7 +132,7 @@ enum SettingType {
 }
 ```
 
-## UIFeedback
+### UIFeedback
 
 **`GameEvents`** can trigger visual feedback for the user. This feedback consists of 3 integral parts: `type`, `kind`, `arguments`.
 
@@ -71,9 +140,9 @@ enum SettingType {
 * `type`\: which feedback should be displayed
 * `arguments`\: provide context for the feedback, like which players are involved
 
-### UIFeedbackType
+#### UIFeedbackType
 
-```
+```csharp
 enum UIFeedbackType {
   Skipped = 1,
   DirectionChanged = 2,
@@ -84,9 +153,9 @@ enum UIFeedbackType {
 }
 ```
 
-### UIFeedbackKind
+#### UIFeedbackKind
 
-```
+```csharp
 enum UIFeedbackKind {
   Individual = 1, // single user involved
   Interaction = 2, // interaction between two users
@@ -94,7 +163,7 @@ enum UIFeedbackKind {
 }
 ```
 
-### UIFeedbackArguments
+#### UIFeedbackArguments
 
 The **core** arguments are the following, these indicate, that the client can safely resolve usernames from them.
 
@@ -106,9 +175,9 @@ Besides these, each Feedback Event may define **further** arguments, other well 
 
 * `{ amount: <a transferred amount of cards> }`
 
-### GameProfileGroup
+### GameProfileGroup [deprecated v5.0.0]
 
-```
+```csharp
 enum GameProfileGroup {
   System = 1,
   User = 2,
@@ -119,37 +188,38 @@ enum GameProfileGroup {
 
 ### General (1xx)
 
-#### *100*  player joined `Notification` (Server)
+#### *100* PlayerJoined`Notification`
 
-a `Player` joins the game.
-
-```json
-{
-    "id": <player game id: number>, [v4.0.0]
-    "username": <player username: string>,
-    "wins": <player wins: number>, [v4.0.0]
-    "isBot": <player is bot: boolean> [v4.0.0]
-    // "wins": <player wins: number> [deprecated: v2.0.0]
-    // "id": <player public id: string> [deprecated v4.0.0]
-}
-```
-
-#### *101*  spectator joined `Notification` (Server)
-
-a `Spectator` joins the game.
+A `Player` joined the game.
 
 ```json
 {
     "id": <player game id: number>, [v4.0.0]
     "username": <player username: string>,
+    "isBot": <player is bot: boolean>, [v4.0.0]
+    "score": <player score: number>, [v5.0.0]
+    // "wins": <player wins: number> [deprecated v2.0.0]
+    // "id": <player public id: string> [deprecated v4.0.0]
+    // "wins": <player wins: number>, [v4.0.0, deprecated v5.0.0]
+}
+```
+
+#### *101* SpectatorJoined`Notification`
+
+A `Spectator` joined the game.
+
+```json
+{
+    "id": <player game id: number>, [v4.0.0]
+    "username": <player username: string>,
     // "wins": <player wins: number> [deprecated: v2.0.0]
     // "id": <player public id: string> [deprecated v4.0.0]
 }
 ```
 
-#### *102*  player left `Notification` (Server)
+#### *102* PlayerLeft`Notification`
 
-a `Player` left the game
+A `Player` left the game.
 
 ```json
 {
@@ -159,9 +229,9 @@ a `Player` left the game
 }
 ```
 
-#### *103*  spectator left `Notification` (Server)
+#### *103* SpectatorLeft`Notification`
 
-a `Spectator` left the game
+A `Spectator` left the game.
 
 ```json
 {
@@ -171,9 +241,11 @@ a `Spectator` left the game
 }
 ```
 
-#### *104*  chat message `Event` (Player/Spectator)
+#### *104* ChatMessage`Event`
 
-a `Player` or `Spectator` wants to send a message in the chat
+Roles: `Host`, `Player`, `Spectator`, `Bot`
+
+A client wants to send a message in the chat.
 
 ```json
 {
@@ -181,9 +253,9 @@ a `Player` or `Spectator` wants to send a message in the chat
 }
 ```
 
-#### *105*  chat Message `Notification` (Server)
+#### *105* ChatMessage`Notification`
 
-the `Server` forwards  a chat message from a `Player` or `Spectator`
+The `Server` forwards a chat message from a client to all other clients.
 
 ```json
 { 
@@ -194,25 +266,29 @@ the `Server` forwards  a chat message from a `Player` or `Spectator`
 }
 ```
 
-#### *106*  leave `Event` (Player/Spectator)
+#### *106* Leave`Event`
 
-a `Player` or `Spectator` wants to leave the game
+Roles: `Host`, `Player`, `Spectator`
 
-```json
-{}
-```
-
-#### *108*  get lobby `Event` (Player/Spectator)
-
-a `Player` or `Spectator` needs all players of their current lobby
+A client wants to leave the game.
 
 ```json
 {}
 ```
 
-#### *109*  get lobby `Notification` (Server)
+#### *108* GetLobby`Event`
 
-sends all `Players` & `Spectators` of the [`Callers[#108]`](#108-get-lobby-Event-PlayerSpectator) current lobby
+Roles: `Host`, `Player`, `Spectator`, `Bot`
+
+A client wants to get all players and spectators in the current lobby.
+
+```json
+{}
+```
+
+#### *109* GetLobby`Notification`
+
+Sends all clients in the current Lobby to the [`Callers[#108]`](#108-getlobbyevent).
 
 ```json
 {
@@ -222,128 +298,140 @@ sends all `Players` & `Spectators` of the [`Callers[#108]`](#108-get-lobby-Event
              "username": <username: string>,
              "role": <user role: number>,
              "state": <player state: number>, [v1.5.0]
-             "wins": <player wins: number> [v4.0.0]
+             "score": <player score: number>, [v5.0.0]
              // "wins": <wins: number> [deprecated v2.0.0]
              // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
+             // "wins": <player wins: number> [v4.0.0, detracted v5.0.0]
          }
     ]
 }
 ```
 
-#### *110*  spectator to player `Event` (Spectator)
+#### *110* SpectatorToPlayer`Event`
 
-a `Spectator` wants to join the game and play
+Roles: `Spectator`
 
-```json
-{}
-```
-
-#### *111*  player to spectator `Event` (Player)
-
-a `Player` wants to stop playing and but keep spectating
-
-```json
-{
-    "id": <player game id: number> [v4.0.0]
-    // "username": <player username: string> [deprecated: v2.0.0]
-    // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
-}
-```
-
-#### *112*  player to host `Event` (Host)
-
-the `Host` wants to give his host role to another `Player`
-
-```json
-{
-    "id": <player game id: number> [v4.0.0]
-    // "username": <player username: string> [deprecated: v2.0.0]
-    // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
-}
-```
-
-#### *113*  you are host `Notification` (Server)
-
-notifies a `Player` that he is now the host of the game
+A `Spectator` wants to join the game and play.
 
 ```json
 {}
 ```
 
-#### *114*  new host `Notification` (Server)
+#### *111* PlayerToSpectator`Event`
 
-notifies all `Players` and `Spectators` of a game that the game has a new `Host`
+Roles: `Player`
+
+A `Player` wants to stop playing and but keep spectating.
 
 ```json
 {
-    "id": <player game id: number> [v4.0.0]
+    "id": <player game id: number>, [v4.0.0]
     // "username": <player username: string> [deprecated: v2.0.0]
     // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
 }
 ```
 
-#### *115*  kick player `Event` (Host)
+#### *112* PlayerToHost`Event`
 
-the `Host` removes a `Player` or `Spectator` from the game
+Roles: `Host`
+
+The `Host` wants to give his host role to another `Player`.
 
 ```json
 {
-    "id": <player game id: number> [v4.0.0]
+    "id": <player game id: number>, [v4.0.0]
     // "username": <player username: string> [deprecated: v2.0.0]
     // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
 }
 ```
 
-#### *116*  player changed role `Notification` (Server)
+#### *113* YouAreHost`Notification`
 
-notifies all `Players` and `Spectators` that a `Host` or `Player` or `Spectator` changed its role
+Notifies a `Player` that he is now the host of the game.
+
+```json
+{}
+```
+
+#### *114* NewHost`Notification`
+
+Notifies all `Players` and `Spectators` of a game that the game has a new `Host`
+
+```json
+{
+    "id": <player game id: number>, [v4.0.0]
+    // "username": <player username: string> [deprecated: v2.0.0]
+    // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
+}
+```
+
+#### *115* KickPlayer`Event`
+
+Roles: `Host`
+
+The `Host` removes a `Player` or `Spectator` from the game.
+
+```json
+{
+    "id": <player game id: number>, [v4.0.0]
+    // "username": <player username: string> [deprecated: v2.0.0]
+    // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
+}
+```
+
+#### *116* PlayerChangedRole`Notification`
+
+Notifies all clients that a another client changed its role.
 
 ```json
 {
     "id": <player game id: number>, [v4.0.0]
     "role": <player role: number>,
-    "wins": <player wins: number> [v4.0.0]
+    "score": <player score: number>, [v5.0.0]
     // "username": <player username: string> [deprecated: v2.0.0]
     // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
     // "wins": <player wins: string> [deprecated v2.0.0]
+    // "wins": <player wins: number> [v4.0.0, deprecated v5.0.0]
 }
 ```
 
-#### *117*  player disconnected `Notification` (Server) [v1.4.0]
+#### *117* PlayerDisconnected`Notification` [v1.4.0]
 
-notifies all `Players` and `Spectators` of a game the a `Player` disconnected from the game without leaving
+Notifies all clients of a game the a `Player` disconnected from the game without leaving.
 
 ```json
 {
-    "id": <player game id: number> [v4.0.0]
+    "id": <player game id: number>, [v4.0.0]
     // "username": <player username: string> [deprecated: v2.0.0]
     // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
 }
 ```
 
-#### *118*  player reconnected `Notification` (Server) [v1.4.0]
+#### *118* PlayerReconnected`Notification` [v1.4.0]
 
-notifies all `Players` and `Spectators` of a game the a `Player` who disconnected first now reconnected to the game
+Notifies all clients of a game the a `Player` who disconnected first now reconnected to the game.
 
 ```json
 {
-    "id": <player game id: number> [v4.0.0]
+    "id": <player game id: number>, [v4.0.0]
     // "username": <player username: string> [deprecated: v2.0.0]
     // "id": <player public id: string> [v2.0.0] [deprecated v4.0.0]
 }
 ```
 
-#### *198*  keep alive `Event` (Player/Spectator) [v1.1.0]
+#### *198* KeepAlive`Event` [v1.1.0]
 
-used to keep the websocket connections alive and timeouts
+Roles: `Host`, `Player`, `Spectator`, `Bot`
+
+Used to keep the websocket connections alive and timeouts.
 
 ```json
 { }
 ```
 
-#### *199*  ack keep alive `notification` (Server) [v1.1.0]
+#### *199* AckKeepAlive`Notification` [v1.1.0]
 
-acknowledge the keep alive event
+Acknowledge a keep alive event.
 
 ```json
 { }
@@ -353,20 +441,12 @@ acknowledge the keep alive event
 
 Codes used for setting up the game in the lobby phase (mostly communication between Host and Server)
 
-#### *200*  update setting `Event` (Host)
+#### *200* UpdateSetting`Event`
 
-the `Host` sends this when he wants to change a setting
+Roles: `Host`
 
-```json
-{
-    "setting": <setting path: string>,
-    "value": <new value: string>
-}
-```
+The `Host` changes a setting of the game.
 
-#### *201*  setting changed notification (Server)
-
-notifies all `Players` and `Spectators` that a settings of the game changed
 
 ```json
 {
@@ -375,17 +455,30 @@ notifies all `Players` and `Spectators` that a settings of the game changed
 }
 ```
 
-#### *202*  get settings `Event` (Player/Spectator)
+#### *201* SettingChanged`Notification`
 
-a `Player` or `Spectator` requests all current game settings
+Notifies all clients that a settings of the game changed.
+
+```json
+{
+    "setting": <setting path: string>,
+    "value": <new value: string>
+}
+```
+
+#### *202* GetSettings`Event`
+
+Roles: `Host`, `Player`, `Spectator`, `Bot`
+
+A client requests all current game settings.
 
 ```json
 {}
 ```
 
-#### *203*  all settings `Notification` (Server)
+#### *203*  AllSettings`Notification`
 
-sends the [`Caller[#202]`](#202-get-settings-Event-PlayerSpectator) all game settings
+Sends the [`Caller[#202]`](#202-getsettingsevent) all game settings.
 
 ```json
 {
@@ -404,83 +497,21 @@ sends the [`Caller[#202]`](#202-get-settings-Event-PlayerSpectator) all game set
 }
 ```
 
-#### *204* get game profiles `Event` (Host) [v4.3.0]
+#### *210* StartGame`Event`
 
-sends the [`Caller[#202]`](#202-get-settings-Event-PlayerSpectator) all game settings
+Roles: `Host`
 
-```json
-{}
-```
-
-#### *205* all game profiles `Notification` (Server) [v4.3.0]
-
-sends the [`Caller[#204]`](#204-get-game-profiles-event-host-v430) all game profiles
-
-all profiles should be displayed with a group reference, since the group reference implicitly communicates access restrictions (like read/write)
-
-```json
-{
-    "profiles": [
-      {
-        "id": <profile id: string>,
-        "name": <profile name: string>,
-        "group": <profile group name: GameProfileGroup>
-      }
-    ]
-}
-```
-
-#### *206* safe to profile `Event` (host) [v4.3.0]
-
-sends a request to the game server to safe the current settings into a profile
-
-```json
-{
-  "name": <profile name: string>,
-}
-```
-
-#### *207* update game profile `Event` (Host) [v4.3.0]
-
-sends a update the select profile
-
-```json
-{
-  "id": <profile id: string>
-}
-```
-
-#### *208* apply game profile `Event` (Host) [v4.3.0]
-
-sends a request to the game server to apply a certain game profile
-
-```json
-{
-  "id": <profile id: string>
-}
-```
-
-#### *209* delete game profile `Event` (Host) [v4.3.0]
-
-sends a request to the game server to delete a game profile
-
-```json
-{
-  "id": <profile id: string>
-}
-```
-
-#### *210*  start game `event` (Host)
-
-the `Host` sends this event when the game should start
+The `Host` starts the game.
 
 ```json
 {}
 ```
 
-#### *230*  create bot `Event` (Host) [v2.0.0]
+#### *230* CreateBot`Event` [v2.0.0]
 
-the `Host` creates a new bot for the game
+Roles: `Host`
+
+The `Host` creates a new bot for the game.
 
 ```json
 {
@@ -491,33 +522,36 @@ the `Host` creates a new bot for the game
 }
 ```
 
-#### *231*  bot joined `Notification` (Server) [v2.0.0]
+#### *231* BotJoined`Notification` [v2.0.0]
 
-notifies all `Players` and `Spectators` that a new `Bot` joined the game
+Notifies all clients that a new `Bot` joined the game.
 
 ```json
 {
     "id": <bot game id: number>, [v4.0.0]
     "username": <bot username: string>,
-    "wins": <bot wins: number> [v4.0.0]
+    "score": <bot score: number>, [v5.0.0]
     // "id": <player public id: string>, [deprecated: v4.0.0]
+    // "wins": <bot wins: number>, [v4.0.0. deprecated]
 }
 ```
 
-#### *232*  bot left `Notification` (Server) [v2.0.0]
+#### *232* BotLeft`Notification` [v2.0.0]
 
-notifies all `Players` and `Spectators` that a `Bot` left the game
+Notifies all clients that a `Bot` left the game.
 
 ```json
 {
-  "id": <bot game id: number> [v4.0.0]
+  "id": <bot game id: number>, [v4.0.0]
   // "id": <bot public id: string> [deprecated v4.0.0]
 }
 ```
 
-#### *233*  update bot `Event` (Host) [v2.0.0]
+#### *233* UpdateBot`Event` [v2.0.0]
 
-the `Host` updates the configuration of a bot
+Roles: `Host`
+
+The `Host` updates the configuration of a bot.
 
 ```json
 {
@@ -529,44 +563,49 @@ the `Host` updates the configuration of a bot
 }
 ```
 
-#### [reserved\|not implemented] *234*  bot updated `Notification` (Server)
+#### [reserved\|not implemented] *234* BotUpdated`Notification`
 
 [will be used to notify other clients about changes in bots]
 
-#### *235*  delete bot `Event` (Host) [v2.0.0]
+#### *235* DeleteBot`Event` [v2.0.0]
 
-the `Host` removed a bot from the game
+Roles: `Host`
+
+The `Host` removed a bot from the game.
 
 ```json
 {
-  "id": <bot game id: number> [v4.0.0]
+  "id": <bot game id: number>, [v4.0.0]
   // "id": <bot public id: string> [deprecated v4.0.0]
 }
 ```
 
-#### *236*  get bots `Event` (Host) [v2.0.0]
+#### *236* GetBots`Event` [v2.0.0]
 
-send by a (new) `Host` to get the configuration off all current bots
+Roles: `Host`
+
+A a (new) `Host` requests the configuration off all current bots.
 
 ```json
 {}
 ```
 
-#### *237*  all bots `Notification` (Server) [v2.0.0]
+#### *237* AllBots`Notification` [v2.0.0]
 
-sends the [`Caller[#235]`](#235-get-bots-Event-Host) the configuration of all current bots
+Sends the [`Caller[#235]`](#235-deletebotevent-v200) the configuration of all current bots.
 
 ```json
 {
   	"bots": [
       {
-        "id": <bot game id: number> [v4.0.0]
+        "id": <bot game id: number>, [v4.0.0]
         "username": <bot username: string>,
-        "wins": <bot wins: number> [v4.0.0]
         "config": {
           "type": <number>
-        }
+        },
+        "score": <bot score: number>, [v5.0.0]
         // "id": <bot public id: string> [deprecated v4.0.0]
+        // "wins": <bot wins: number> [v4.0.0, deprecated v5.0.0]
       }
     ]
 }
@@ -576,121 +615,128 @@ sends the [`Caller[#235]`](#235-get-bots-Event-Host) the configuration of all cu
 
 All codes for the actual game.
 
-#### *300*  game started `Notification` (Server)
+#### *300* GameStarted`Notification`
 
-broadcasted by the `Server` when the game started
+Broadcasted by the `Server` when the game started.
 
 ```json
 {
-    "hand": [
-        {
-            "type": <card type: number>,
-            "symbol": <card symbol: number>
-        }
-    ], [v4.0.0]
-    "players": [
-      {
-        "id": <player game id: number>,
+  "players": [
+    {
+      "id": <player game id: number>,
         "username": <player id path: string>,
         "cards": <amount: number>,
         "isActivePlayer": <isActive: boolean>,
         "order": <orderInGame: number>
       }
     ], [v4.0.0]
-    "pile": {
-        "type": <card type: number>,
-        "symbol": <card symbol: number>
-    } [v4.0.0]
+    "hand": [<cards: Card[]>], [v5.0.0]
+    "pile": <Card>, [v5.0.0]
+    // "hand": [
+    //     {
+    //         "type": <card type: number>,
+    //         "symbol": <card symbol: number>
+    //     }
+    // ], [v4.0.0, deprecated v5.0.0]
+    // "pile": {
+    //   "type": <card type: number>,
+    //     "symbol": <card symbol: number>
+    // } [v4.0.0, deprecated v5.0.0]
 }
 ```
 
-#### *301*  start turn `Notification` (Server)
+#### *301* StartTurn`Notification`
 
-notifies a player that his turn started
-
-```json
-{}
-```
-
-#### *302*  end turn `Notification` (Server)
-
-notifies a player that his turn ended
+Notifies a player that his turn started.
 
 ```json
 {}
 ```
 
-#### *303*  request end turn `Event` (Player)
+#### *302* EndTurn`Notification`
 
-a `Player` requests his turn to be ended
+Notifies a player that his turn ended.
 
 ```json
 {}
 ```
 
-#### *304*  place card `Event` (Player)
+#### *303* RequestEndTurn`Event`
 
-send by a `Player` when he wants to place a card
+Roles: `Host`, `Player`, `Bot`
+
+A `Player` requests his turn to be ended.
+
+```json
+{}
+```
+
+#### *304* PlaceCard`Event`
+
+Roles: `Host`, `Player`, `Bot`
+
+Send by a `Player` when he wants to place a card.
 
 ```json
 {
-    "type": <card type: number>,
-    "symbol": <card symbol: number>
+  "card": <placed card: Card>, [v5.0.0]
+  // "type": <card type: number>, [deprecated v5.0.0]
+  // "symbol": <card symbol: number> [deprecated v5.0.0]
 }
 ```
 
-#### *305*  draw card `Event` (Player)
+#### *305* DrawCard`Event`
 
-a `Player` wants to draw a card from the pile
+Roles: `Host`, `Player`, `Bot`
+
+A `Player` wants to draw a card from the pile.
 
 ```json
 {}
 ```
 
-#### *306*  send cards `Notification` (Server)
+#### *306* SendCards`Notification`
 
-sends a `Player` a new card
+Sends a `Player` a new card.
 
 ```json
 {
-  "cards": [
-    {
-      "type": <card type: number>,
-      "symbol": <card symbol: number>
-    }
-  ] [v2.0.0]
+  "cards": [<cards: Card[]>], [v5.0.0]
+  // "cards": [
+  //   {
+  //     "type": <card type: number>,
+  //     "symbol": <card symbol: number>
+  //   }
+  // ] [v2.0.0, deprecated v5.0.0]
   // "type": <card type: number> [deprecated v2.0.0]
   // "symbol": <card symbol: number> [deprecated v2.0.0]
 }
 ```
 
-#### *307*  remove card `Notification` (Server)
+#### *307* RemoveCard`Notification`
 
-notifies a `Player` that one of his cards should be removed from is deck
+Notifies a `Player` that one of his cards should be removed from is deck.
 
 ```json
 {
-  "cards": [
-    {
-      "type": <card type: number>,
-      "symbol": <card symbol: number>
-    }
-  ] [v3.3.0]
+  "cards": [<cards: Card[]>], [v5.0.0]
+  // "cards": [
+  //   {
+  //     "type": <card type: number>,
+  //     "symbol": <card symbol: number>
+  //   }
+  // ] [v3.3.0, deprecated v5.0.0]
   //  "type": <card type: number> [deprecated v3.3.0]
   //  "symbol": <card symbol: number> [deprecated v3.3.0]
 }
 ```
 
-#### *308*  state update `Notification` (Server)
+#### *308* StateUpdate`Notification`
 
-notifies all `Players` and `Spectators` whenever the game state updates
+Notifies all `Players` and `Spectators` whenever the game state updates.
 
 ```json
 {
-    "pileTop": {
-      "type": <card type: number>,
-      "symbol": <card symbol: number>,
-    },
     "activePlayer": <player game id: number>, [v4.0.0]
     "cardAmounts": <card amounts of subset of players: Dictionary<number, number>>, [v4.0.0]
     "currentDrawAmount": <amount active player would draw: number | null>, [v3.0.0]
@@ -700,7 +746,8 @@ notifies all `Players` and `Spectators` whenever the game state updates
         "kind": <the feedbacks kind: UIFeedbackKind>,
         "args": <the context, see UIFeedbackArguments>
       }
-    ] [v4.1.0]
+    ], [v4.1.0]
+    "pileTop": <card: Card>, [v5.0.0]
     // "activePlayerCardAmount": <amount: number> [deprecated v3.0.0]
     // "lastPlayer": <player public id: string> [deprecated v3.0.0]
     // "lastPlayerCardAmount": <amount: number> [deprecated v3.0.0]
@@ -708,43 +755,52 @@ notifies all `Players` and `Spectators` whenever the game state updates
     // "lastPlayer": <playerName: string> [deprecated v2.0.0]
     // "activePlayer": <player public id: string> [v2.0.0] [deprecated v4.0.0]
     // "cardAmounts": <card amounts of subset of players: Dictionary<string, number>> [3.0.0] [deprecated v4.0.0]
+    // "pileTop": {
+    //   "type": <card type: number>,
+    //   "symbol": <card symbol: number>,
+    // } [deprecated v5.0.0]
 }
 ```
 
-#### *310*  get deck `Event` (Player)
+#### *310* GetDeck`Event`
 
-request all cards that the `Caller` has in its deck
+Roles: `Host`, `Player`, `Bot`
+
+Request all cards that the `Caller` has in its deck.
 
 ```json
 {}
 ```
 
-#### *311*  send deck `Notification` (Server)
+#### *311* SendDeck`Notification`
 
-sends the [`Caller[#310]`](#310-get-deck-Event-Player) his current deck
+Sends the [`Caller[#310]`](#310-getdeckevent) his current deck.
 
 ```json
 {
-    "hand": [
-        {
-            "type": <card type: number>,
-            "symbol": <card symbol: number>
-        }
-    ]
+    "hand": [<cards: Card[]>], [v5.0.0]
+    // "hand": [
+    //     {
+    //         "type": <card type: number>,
+    //         "symbol": <card symbol: number>
+    //     }
+    // ] [deprecated v5.0.0]
 }
 ```
 
-#### *312* get player state `Event` (Player/Spectator)
+#### *312* GetPlayerState`Event`
 
-requests all active players amount of cards on their deck
+Roles: `Host`, `Player`, `Bot`
+
+Requests all active players amount of cards on their deck.
 
 ```json
 {}
 ```
 
-#### *313*  send player card Amount `Notification` (Server)
+#### *313* SendPlayerState`Notification`
 
-sends the [`Caller[#312]`](#312-get-player-state-Event-PlayerSpectator) the card amounts of all active players
+Sends the [`Caller[#312]`](#312-getplayerstateevent) the card amounts of all active players.
 
 ```json
 {
@@ -761,28 +817,33 @@ sends the [`Caller[#312]`](#312-get-player-state-Event-PlayerSpectator) the card
 }
 ```
 
-#### *314*  get pile top `Event` (Player/Spectator)
+#### *314* GetPileTop`Event`
 
-request the current top most card on the stack
+Roles: `Host`, `Player`, `Bot`
+
+Request the current top most card on the stack.
 
 ```json
 {}
 ```
 
-#### *315*  send pile top `Notification` (Server)
+#### *315* SendPileTop`Notification`
 
-sends the [`Caller[#314]`](#314-get-pile-top-Event-PlayerSpectator) the current top most card
+Sends the [`Caller[#314]`](#314-getpiletopevent) the current top most card.
 
 ```json
 {
-    "type": <card type: number>,
-    "symbol": <card symbol: number>
+    "card": <card: Card> [v5.0.0]
+    // "type": <card type: number> [deprecated v5.0.0],
+    // "symbol": <card symbol: number> [deprecated v5.0.0]
 }
 ```
 
-#### *316*  get player decision `Notification` (Server)
+#### *316* GetPlayerDecision`Notification`
 
-request a decision from a `Player`
+Roles: `Host`, `Player`, `Bot`
+
+Request a decision from a `Player`.
 
 ```json
 {
@@ -791,9 +852,11 @@ request a decision from a `Player`
 }
 ```
 
-#### *317*  player decision `Event` (Player)
+#### *317* PlayerDecision`Event`
 
-answers a [`Server[#316]`](#316-get-player-decision-Notification-Server) request
+Roles: `Host`, `Player`, `Bot`
+
+Answers a [`Server[#316]`](#316-getplayerdecisionnotification) request.
 
 ```json
 {
@@ -806,9 +869,9 @@ answers a [`Server[#316]`](#316-get-player-decision-Notification-Server) request
 >
 > the interpretation of these values is handled implicitly
 
-#### *399*  player won `Notification` (Server)
+#### *399* PlayerWon`Notification`
 
-the `Server` notifies all clients that a `Player` has won the game - the game is finished
+The `Server` notifies all clients that a `Player` has won the game - the game is finished.
 
 ```json
 {
@@ -832,19 +895,9 @@ the `Server` notifies all clients that a `Player` has won the game - the game is
 
 informs the (mostly) client about failed or disallowed operations
 
-#### *400* general error `Notification` (Server)
+#### *400* GeneralError`Notification`
 
-sent when no matching error is available
-
-```json
-{
-    "message": <message: string>
-}
-```
-
-#### *420*  access denied error `Notification` (Server)
-
-notfies a `Player` that he cant perform this operation (eg. a player sends `Host` scoped `Events`)
+Sent when no matching error is available.
 
 ```json
 {
@@ -852,79 +905,105 @@ notfies a `Player` that he cant perform this operation (eg. a player sends `Host
 }
 ```
 
-#### *421*  lobby full error `Notification `(Server) [1.3.0]
+#### *401* MessageToLongError`Notification`
 
-notify a player that he cant join the lobby because it is full
+Sent when the incoming message was too long
 
 ```json
 {
+    "code": <error code: number>,
+    "message": <message: string>
+}
+```
+
+#### *420* AccessDeniedError`Notification`
+
+Notifies a `Player` that he cant perform this operation (eg. a player sends `Host` scoped `Events`)
+
+```json
+{
+    "code": <error code: number>,
+    "message": <message: string>
+}
+```
+
+#### *421* LobbyFullError`Notification` [1.3.0]
+
+Notify a player that he cant join the lobby because it is full.
+
+```json
+{
+    "code": <error code: number>,
     "message": <message: string>
 }
 ```
 
 > this error is primarily used for spectator to player role changes
 
-#### *425*  bot name exists error `Notification` (Server) [v2.0.0]
+#### *425* BotNameExistsError`Notification` [v2.0.0]
 
-notify a host that he cant create a bot because the name is already used
+Notify a host that he cant create a bot because the name is already used.
 
 ```json
 {
+    "code": <error code: number>,
     "message": <message: string>
 }
 ```
 
-#### *426*  empty pile error `Notification` (Server) [v4.2.1]
+#### *426* EmptyPileError`Notification` [v4.2.1]
 
-notify a `Host` that the game cannot be started caused by as misconfiguration of the game
+Notify a `Host` that the game cannot be started caused by as misconfiguration of the game.
 
 ```json
 {
-    "code": <error code: number>
+    "code": <error code: number>,
     "message": <display message: string>
 }
 ```
 
-#### *434*  place card error `Notification` (Server)
+#### [reserved\|not implemented] *433* EndTurnError`Notification`
 
-notify a `Player` that he cant place this card
+#### *434* PlaceCardError`Notification`
+
+Notify a `Player` that he cant place this card.
 
 ```json
 {
-    "code": <error code: number>
+    "code": <error code: number>,
     "message": <display message: string>
 }
 ```
 
 ## Changelog
 
-### v1.1.0
+#### v1.1.0
 
 Added
 
 * 198 KeepAlive (Player)
 * 199 AckKeepAlive (Server)
 
-### v1.2.0
+#### v1.2.0
 
 Added
 
 * 313 Added `Player` order
 
-### v1.3.0
+#### v1.3.0
 
 Added
 
 * 421 Lobby Full Error
 
-### v1.4.0
+#### v1.4.0
 
 Added
 
 * 117 PlayerDisconnected (Server)
 * 118 PlayerReconnected (Server)
 
-### v1.5.0
+#### v1.5.0
 
 > introduced the concept of player states
 
@@ -959,7 +1038,7 @@ Added
 * 230-237: Bot management in games
 * 425: bot name collision error
 
-### **v3.0.0**
+### v3.0.0
 
 Modified
 
@@ -969,7 +1048,7 @@ Added
 
 * 303 Request End Turn
 
-### **v3.1.0**
+#### v3.1.0
 
 Modified
 
@@ -979,19 +1058,19 @@ Added
 
 * Decision Type 2 (Select Player)
 
-### **v3.2.0**
+#### v3.2.0
 
 Modified
 
 * 203 rules/rule editing is configured by backend
 
-### **v3.3.0**
+#### v3.3.0
 
 Modified
 
 * 307 is now capable of sending multiple cards at once
 
-### **v4.0.0**
+### v4.0.0
 
 > transform username based public ids to numeric game/lobby scoped ids
 >
@@ -1002,7 +1081,7 @@ Modified
 * 300 send initial game state
 * 399 remove username properties
 
-### v4.1.0
+#### v4.1.0
 
 > Introduced the concept of UIFeedback
 
@@ -1010,20 +1089,38 @@ Modified
 
 * 308 send feedbacks
 
-### v4.2.0
+#### v4.2.0
 
 Modified
 
 * SettingType: add option Readonly
 
-**v4.2.1**
+##### v4.2.1
 
 Added
 
 * 426: empty pile error
 
-**v4.3.0**
+#### v4.3.0
 
 Added
 
 * 204, 205, 206, 207, 208, 209: Game Profiles Concept
+
+### v5.0.0
+
+> This breaking change removes the concept of Game Profiles from the ZRP, adds a common card object and introduces the actual card colors and types into the protocol.
+> Also preparing for upcoming features, the `wins` property was renamed to `score`.
+> Overall documentation cleanup.
+
+Removed
+
+* GameProfileGroup
+* 204, 205, 206, 207, 208, 209: Game Profiles Concept
+
+> Game Profiles are now handled via the HTTP API and are not part of the ZRP anymore
+
+Modified:
+
+* renamed `wins` property to `score` on codes 100; 109, 116, 231, 237
+* use `Card` type in 300, 304, 306, 307, 308, 311, 315

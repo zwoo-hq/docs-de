@@ -70,7 +70,8 @@ export const themeConfig: ThemeConfig = {
   },
   i18nRouting: false,
   footer: {
-    copyright: "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt)",
+    copyright:
+      "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt) | <a href='https://zwoo.igd20.de/imprint'>Imprint</a> | <a href='https://zwoo.igd20.de/privacy'>Privacy</a>",
     message: "Made with <3 by Fabian Kachlock and the zwoo team.",
   },
 };
