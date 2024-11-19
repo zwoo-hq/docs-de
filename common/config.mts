@@ -15,10 +15,10 @@ export const createCommonHead = (): HeadConfig[] => [
     "meta",
     {
       property: "og:title",
-      content: "ZWOO Docs - die offizielle ZWOO Dokumentation.",
+      content: "ZWOO-Dokumentation - die offizielle ZWOO-Dokumentation.",
     },
   ],
-  ["meta", { property: "og:site_name", content: "ZWOO Docs" }],
+  ["meta", { property: "og:site_name", content: "ZWOO-Dokumentation" }],
   // TODO: test once deployed to dev
   // [
   //   "meta",
@@ -30,19 +30,19 @@ export const createCommonHead = (): HeadConfig[] => [
 export const createCommonNav = (
   base: string
 ): NonNullable<ThemeConfig["nav"]>[number] => ({
-  text: "Switch to",
+  text: "Wechseln zu",
   items: [
     { text: "ZWOO", link: ZWOO_URL },
     {
-      text: "Documentation",
+      text: "Dokumentation",
       link: ZWOO_DOCS_URL,
     },
     {
-      text: "Developer Docs",
+      text: "Entwicklerdokumentation",
       link: ZWOO_DOCS_URL + "dev/",
     },
     {
-      text: "API Reference",
+      text: "API-Referenz",
       link: ZWOO_DOCS_URL + "api/",
     },
   ].filter((item) => !item.link.endsWith(base)),
@@ -55,7 +55,7 @@ export const socialLinks: ThemeConfig["socialLinks"] = [
 export const createLocales = (base: string): ConfigType["locales"] => ({
   root: {
     lang: "en",
-    label: "English",
+    label: "Englisch",
   },
   de: {
     lang: "de",
@@ -71,7 +71,7 @@ export const themeConfig: ThemeConfig = {
   i18nRouting: false,
   footer: {
     copyright:
-      "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt) | <a href='https://zwoo.igd20.de/imprint'>Imprint</a> | <a href='https://zwoo.igd20.de/privacy'>Privacy</a>",
-    message: "Made with <3 by Fabian Kachlock and the zwoo team.",
+      "Copyright © 2021-present IGD 2.0 UG (haftungsbeschränkt) | <a href='https://zwoo.igd20.de/imprint'>Impressum</a> | <a href='https://zwoo.igd20.de/privacy'>Datenschutz</a>",
+    message: "Mit <3 gemacht von Fabian Kachlock und dem zwoo-Team.",
   },
 };
